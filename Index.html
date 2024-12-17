@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitten of The Day</title>
+    <link rel="stylesheet" href="https://api.ssps.cajthaml.eu/file/64d9f18f79dad891e8a07c73">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.ico">
+
+    <script>
+        setInterval(kittychange,5000);
+
+        function Meow()
+        { 
+            var meow1 = new Audio('Meow.mp3');
+            var meow2 = new Audio('Meow2.mp3');
+            var meow3 = new Audio('Meow3.mp3');
+            var meow4 = new Audio('Meow4.mp3');
+            var meow5 = new Audio('Meow5.mp3');
+            var meow6 = new Audio('Meow6.mp3');
+            var meow7 = new Audio('Meow7.mp3');
+
+            //count ++;
+            //document.getElementById("counter").innerHTML = count;
+            
+            const audioArray = [meow1, meow2, meow3, meow4, meow5, meow6, meow7];
+
+            let Raudio = audioArray[Math.floor(Math.random() * (audioArray.length - 1))];
+            Raudio.volume = .4;
+            Raudio.play();
+        }
+
+        class Kitten {
+            constructor(src, name, age, breed, special) {
+                this.src = src
+                this.name = name;
+                this.age = age;
+                this.breed = breed;
+                this.special = special;
+            }
+        }
+
+        const cat1 = new Kitten("https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t1080x1080.jpg","Mittens","2,5 years","Orange","Big Tongue")
+        const cat2 = new Kitten("https://assets3.thrillist.com/v1/image/3005222/792x918/scale;webp=auto;jpeg_quality=60.jpg","Car","6 years","Black","0 Brain cells")
+        const cat3 = new Kitten("https://pbs.twimg.com/profile_images/1828434705139585024/UHcn3Wbg_400x400.jpg","Cuh","3 months","2 color","Cute")
+        const cat4 = new Kitten("https://p16-va.lemon8cdn.com/tos-maliva-v-ac5634-us/ogFjQkAMIE8xaHAFeyVW7DEIeQfZknAfAPsFD2~tplv-tej9nj120t-origin.webp","Kureci Maso","16 years","Orange","Confused")
+        const cat5 = new Kitten("https://wallpapers.com/images/hd/silly-cat-pictures-1600-x-1289-b0qw5gcu2akaheo8.jpg","Megatron","5 years","Demon Black","Dumb")
+        const cat6 = new Kitten("https://i.pinimg.com/originals/78/98/7e/78987e6518bcb738155610dd8c6ac3ea.png","Adolf Kitler","86 years","War veteran","Panzer Faust 60")
+        const cat7 = new Kitten("https://preview.redd.it/v51i6277f0u71.png?width=1600&format=png&auto=webp&s=12fd75ba8291a0ba29351f15a6466ff0d409e927","Veigar Cat","1500 years","Yordle","Darkness")
+        const cat8 = new Kitten("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq6JKiYOPOxA2418fTh33r2mNa6mk3DmhecQ&s","Uhh Actually","15 years","Smart Kid","annoying")
+        const cat9 = new Kitten("https://www.opleague.pro/styles/media/team/3100/Logo_background.png","Swag Cat","18 years","Glass Cat","Alpha Aura")
+        const cat10 = new Kitten("https://imgix.ranker.com/user_node_img/50053/1001053266/original/this-cat-looks-like-a-cartoon-of-a-wet-cat-came-to-life-freestyle-list-photo-u1?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&w=355","Billy","Very old","Wet","Shampoo")
+
+        
+        const KittenArray = [cat1,cat2,cat3,cat4,cat5,cat6,cat7,cat8,cat9,cat10]
+
+        function kittychange() {
+            catsrcIndex = Math.floor(Math.random() * KittenArray.length);
+            
+            document.getElementById("kitty").src=KittenArray[catsrcIndex].src;
+            document.getElementById("name").textContent=KittenArray[catsrcIndex].name;
+            document.getElementById("age").textContent=KittenArray[catsrcIndex].age;
+            document.getElementById("breed").textContent=KittenArray[catsrcIndex].breed;
+            document.getElementById("special").textContent=KittenArray[catsrcIndex].special;
+
+            console.log("change");
+        }
+
+        function LightSwitch() {
+            var clickS = new Audio("click.mp3");
+            clickS.play();
+        }
+
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+        :root{
+            color-scheme: light;
+
+            --primary:light-dark(#38173a,#fde4ff);
+            --secondary:light-dark(#6f2364,#9937aa);
+            --shadows:light-dark(#8f4282,#6f0989);
+            --accent:light-dark(#e37bac,#4e0560);
+            --background:light-dark(#ed88bf,#33004d);
+
+            &:has(input[name="color-scheme"][value="color"]:checked) {
+                color-scheme: dark;
+            }
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            background-image: repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in srgb, var(--accent), var(--background))  52%, var(--accent) 55%);
+            font-family: "Ubuntu", sans-serif;
+            font-style: normal;
+        }
+        canvas {
+            position: absolute;
+        }
+        canvas.CatPattern {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            background-image: url(CatPattern.png);
+            background-size: 30%;
+            opacity: .2;
+        }
+        nav {
+            height: 10%;
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 30%;
+            padding: 0 3%;
+        }
+        nav > section.main {
+            width:10%;
+            display: flex;
+            justify-content: flex-start;
+        }
+        nav > section.options {
+            width: 30%;
+            display: flex;
+            justify-content: space-around;
+            gap: 10%;
+        }
+        nav > section.profile {
+            width: 10%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        nav > section a ,nav > section i {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 40px;
+            color: var(--primary);
+            transition: .3s;
+        }
+        nav > section a:hover ,nav > section i:hover{
+            transform: scale(1.1);
+            filter: contrast(1.4);
+            transition: .3s;
+            cursor: pointer;
+        }
+        main {
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+        }
+        main > article.about {
+            height: 35%;
+            overflow: auto;
+            padding: 0 10%;
+            display: flex;
+            align-items: center;
+            gap: 20%;
+        }
+        article.about > section.title {
+            width: 30%;
+            display: flex;
+            justify-content: center;
+        }
+        article.about > section.title h1 {
+            color: var(--primary);
+            font-size: 5em;
+            font-weight: 800;
+        }
+        article.about > section.yapping {
+            width: 50%;
+            overflow: auto;
+            background-color: var(--secondary);
+            border-radius: 15px;
+            filter: drop-shadow(5px 5px 20px var(--shadows));
+            opacity: .8;
+        }
+        article.about > section.yapping h2 {
+            color: var(--primary);
+            padding: 5%;
+            font-weight: 500;
+            font-size: 1.5em;
+        }
+        main > article.Kitten_OTD {
+            height: 65%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5%;
+            background: var(--secondary) url("CatBG.png");
+            background-size: cover;
+            opacity: .8;
+        }
+        article.Kitten_OTD > div.Kitten_IMG {
+            width: 25%;
+            transition: .3s;
+        }
+        article.Kitten_OTD > div.Kitten_IMG:hover {
+            width: 27%;
+            transition: .3s;
+            cursor: pointer;
+        }
+        article.Kitten_OTD > div.Kitten_IMG img {
+            width: 100%;
+            border-radius: 30px;
+            filter: drop-shadow(5px 5px 50px var(--shadows));
+        }
+        article.Kitten_OTD > section.stats {
+            width: 20%;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            padding: 20px;
+            background-color: var(--accent);
+            border-radius: 15px;
+            filter: drop-shadow(5px 5px 50px var(--shadows));
+            overflow: auto;
+        }
+        article.Kitten_OTD > section.stats h3 {
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 1.5em;
+            padding-left: 7%;
+        }
+        label input {
+            display: none;
+        }
+        label i {
+            position: absolute;
+            color: var(--primary);
+            bottom: 3%;
+            left:80%;
+            font-size: 2.5rem;
+            transition: .3s;
+        }
+        label i:hover {
+            filter: contrast(1.4);
+            transform: scale(.9);
+            transition: .3s;
+        }
+    </style>
+</head>
+<body onload="kittychange()">
+    <canvas class="CatPattern"></canvas>
+    <nav>
+        <section class="main">
+            <a href="Index.html"><i class="fa-solid fa-house"></i></a>
+        </section>
+        <section class="options">
+            <a href="">Kittens</a>
+            <a href=""><i class="fa-solid fa-arrow-up-from-bracket"></i></i></a>
+            <a href="ClickerIndex.html">Clicker</a>
+        </section>
+        <section class="profile">
+            <i class="fa-solid fa-user"></i>
+        </section>
+    </nav>
+    <main>
+        <article class="about">
+            <section class="title">
+                <H1>Kitten of The Day</H1>
+            </section>
+            <section class="yapping">
+                <h2>Welcome to Kitten of the Day! Your daily dose of feline cuteness awaits. Each day, discover a new adorable cat to brighten your mood and make you smile</h2>
+            </section>
+        </article>
+        <article class="Kitten_OTD">
+            <div class="Kitten_IMG" onclick="Meow()">
+                <img id="kitty" src="https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t1080x1080.jpg" alt="kitty" class="kitten">
+            </div>
+            <section class="stats">
+                <h3>Name : <span id="name">Unknown</span></h3>
+                <h3>Age : <span id="age">Unknown</span></h3>
+                <h3>Breed : <span id="breed">Unknown</span></h3>
+                <h3>Special : <span id="special">Unknown</span></h3>
+            </section>
+        </article>
+
+        <label><input type="checkbox" value="color" name="color-scheme" checked><i class="fa-solid fa-lightbulb" onclick="LightSwitch()"></i></label>
+    </main>
+</body>
+</html>
+
+<!--
+Color Palette:
+    https://colorhunt.co/palette/fef3e2fab12ffa812ffa4032
+Site Layout:
+    https://www.wix.com/blog/website-layouts
+-->
