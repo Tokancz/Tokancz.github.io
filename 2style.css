@@ -106,7 +106,7 @@ section.split:hover {
     text-align: center;
 }
 p.meow {
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 600;
     transform: rotate(-15deg);
     transition: .3s;
@@ -129,7 +129,6 @@ section.KoTD {
     align-items: center;
     background-color: var(--backdrop);
     filter: drop-shadow(0 0 30px var(--background));
-    border: solid 3px var(--backdrop);
     border-radius: 50px;
 }
 .KoTD p {
@@ -140,6 +139,8 @@ section.KoTD {
     width: 500px;
     height: 500px;
     border-radius: 100px;
+    border: solid 5px var(--secondary);
+    filter: drop-shadow(0 0 10px var(--secondary));
     transition: .3s;
 }
 .KoTD div > img:hover {
