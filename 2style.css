@@ -5,7 +5,7 @@
 
     --primary:light-dark(#d71d36,#d71d36);
     --secondary:light-dark(#f5f5f5,#f5f5f5);
-    --backdrop:light-dark(#29272740,#29272740);
+    --backdrop:light-dark(#29272750,#29272750);
     --accent:light-dark(#7e1120,#7e1120);
     --background:light-dark(#201e1e,#202020);
 
@@ -18,7 +18,7 @@
 
 body {
     width: 100vw;
-    height: 2500px;
+    height: 2350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,12 +58,12 @@ nav a:hover {
 }
 main {
     width: 60%;
-    height: 2300px;
+    height: 2150px;
     display: flex;
     flex-direction: column;
     align-items: center;
     filter: drop-shadow(0 0 100px var(--background));
-    gap: 70px;
+    gap: 60px;
 }
 section.Yap {
     display: flex;
@@ -71,6 +71,7 @@ section.Yap {
     height: 550px;
     flex-direction: column;
     justify-content: space-evenly;
+    gap: 30px;
     align-items: center;
 }
 .Yap h1 {
@@ -123,7 +124,7 @@ section.KoTD {
     align-items: center;
     gap: 50px;
     background-color: var(--backdrop);
-    filter: drop-shadow(0 0 100px var(--background));
+    filter: drop-shadow(0 0 30px var(--background));
     border: solid 3px var(--backdrop);
     border-radius: 30px;
 }
@@ -134,5 +135,34 @@ section.KoTD {
 .KoTD div > img {
     width: 100%;
     border-radius: 100px;
-    filter: drop-shadow(0 0 100px var(--background));
+}
+iframe {
+    border-radius: 20px;
+}
+hr {
+    width: 100%;
+    height: 5px;
+    border: none;
+    background-color: var(--secondary);
+    margin: 0;
+}
+footer {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    background-color: var(--backdrop);
+}
+footer p {
+    font-size: 1.5em;
+    font-weight: 500;
+    filter: drop-shadow(0 0 3px var(--secondary));
+}
+section.contact {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
