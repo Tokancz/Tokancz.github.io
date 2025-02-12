@@ -135,6 +135,11 @@ section.KoTD {
     width: 500px;
     height: 500px;
     border-radius: 100px;
+    transition: .3s;
+}
+.KoTD div > img:hover {
+    transform: scale(1.1);
+    transition: .3s;
 }
 section.stats {
     display: flex;
@@ -171,3 +176,6 @@ section.contact {
     flex-direction: column;
     gap: 10px;
 }
+
+/*Responzivita*/
+@media (width <= 950px) {}
