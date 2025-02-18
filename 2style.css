@@ -23,7 +23,7 @@ body {
     background-image: url(BG.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(15px);
     color: var(--secondary);
     font-family: "Space Mono", serif;
 }
