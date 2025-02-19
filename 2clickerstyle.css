@@ -16,7 +16,7 @@
 
 body {
     width: 100vw;
-    height: 2300px;
+    height: 1550px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,13 +24,13 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(10px);
-    color: var(--secondary);
+    color: var(--background);
     font-family: "Space Mono", serif;
 }
 i { font-style: italic; }
 nav {
     width: 100%;
-    height: 60px;
+    height: 70px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -42,7 +42,7 @@ nav a {
     transition: .3s;
     font-size: 1.5em;
     font-weight: 500;
-    filter: drop-shadow(0 0 3px var(--backdrop));
+    filter: drop-shadow(0 0 3px var(--background));
 }
 nav a:hover {
     scale: 1.3;
@@ -60,7 +60,6 @@ nav > div.navcenter {
     filter: drop-shadow(0 0 50px var(--backdrop));
     padding: 13px;
     border-radius: 20px;
-    
 }
 div.navcenter > a {
     color: var(--secondary);
@@ -74,16 +73,128 @@ nav > div.navright {
     gap: 30px;
 }
 main {
-    width: 60%;
-    height: 2100px;
+    width: 80%;
+    height: 1400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     filter: drop-shadow(0 0 100px var(--background));
     gap: 60px;
+    padding-top: 50px;
 }
-
-
+h2 {
+    font-size: 3em;
+    font-weight: 800;
+    filter: drop-shadow(0 0 10px var(--secondary));
+}
+section.clicker {
+    width: 90%;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--backdrop);
+    border-radius: 40px;
+    gap: 10px;
+}
+section.group {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+}
+div.button {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div.button > img {
+    width: 80%;
+    border-radius: 400px;
+    transition: .3s;
+    filter: grayscale(.6);
+}
+div.button > img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0) drop-shadow(0 0 15px var(--secondary));
+    transition: .3s;
+}
+div.button > img:active {
+    transform: scale(1.1) rotate(360deg);
+    transition: .3s;
+}
+section.upgrades {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+section.upgrades > section {
+    width: 80%;
+    height: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20%;
+    background-color: var(--backdrop);
+    border-radius: 15px;
+    border: solid 3px var(--backdrop);
+    color: var(--secondary);
+    transition: .3s;
+}
+section.upgrades > section:hover {
+    transition: .3s;
+    transform: scale(1.05);
+}
+section.upgrades p {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+section.upgrades p.cost {
+    font-size: 1em;
+    color: color-mix(in srgb, var(--secondary) 60%, var(--backdrop) 40%);
+}
+p.meows {
+    color: var(--secondary);
+    font-size: 2em;
+    font-weight: 700;
+    filter: drop-shadow(0 0 10px var(--secondary));
+}
+h4 {
+    font-weight: 600;
+    font-size: 2.5em;
+    transform: rotate(-5deg);
+}
+section.container {
+    width: 90%;
+    height: 300px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+section.container > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+    background-color: var(--backdrop);
+    border-radius: 30px;
+    color: var(--secondary);
+    padding: 30px;
+    transition: .3s;
+}
+section.container > section:hover {
+    transition: .3s;
+    transform: scale(1.05);
+}
+section.container p {
+    font-size: 1.4em;
+}
 hr {
     width: 100%;
     height: 5px;
@@ -103,6 +214,7 @@ footer {
 footer p {
     font-size: 1.5em;
     font-weight: 500;
+    color: var(--secondary);
     filter: drop-shadow(0 0 3px var(--secondary));
 }
 section.contact {
