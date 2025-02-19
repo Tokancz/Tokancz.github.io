@@ -120,6 +120,7 @@ div.button > img {
 div.button > img:hover {
     transform: scale(1.1);
     filter: grayscale(0) drop-shadow(0 0 15px var(--secondary));
+    cursor: pointer;
     transition: .3s;
 }
 div.button > img:active {
@@ -149,6 +150,7 @@ section.upgrades > section {
 section.upgrades > section:hover {
     transition: .3s;
     transform: scale(1.05);
+    cursor: pointer;
 }
 section.upgrades p {
     font-size: 1.5em;
