@@ -205,8 +205,8 @@ section.contact {
     section.contact { width: 60%; }
 }
 @media (width <= 615px) {
-    body { height: 2500px; font-size: .75em;}
-    main { height: 2300px; }
+    body { height: 2300px; font-size: .75em;}
+    main { height: 2100px; }
     nav { gap: 0%; }
     section.Yap { height: 750px; gap: 20px;}
     section.split {
@@ -214,6 +214,8 @@ section.contact {
         flex-direction: column;
         justify-content: space-evenly;
     }
+    section.KoTD { height: 550px; }
+    .KoTD div > img { height: 350px; width: 350px; }
     /*
     footer p { font-size: 1.2em; }*/
 }
