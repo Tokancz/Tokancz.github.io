@@ -204,10 +204,11 @@ section.contact {
     section.KoTD { width: 100%; border-radius: 0; }
     section.contact { width: 60%; }
 }
-@media (width <= 615px) {
+@media (width <= 625px) {
     body { height: 2300px; font-size: .75em;}
     main { height: 2100px; }
-    nav { gap: 0%; }
+    nav { gap: 2%; justify-content: center; }
+    nav > div.navright { gap: 5px; }
     section.Yap { height: 750px; gap: 20px;}
     section.split {
         height: 80%;
@@ -216,6 +217,4 @@ section.contact {
     }
     section.KoTD { height: 550px; }
     .KoTD div > img { height: 350px; width: 350px; }
-    /*
-    footer p { font-size: 1.2em; }*/
 }
