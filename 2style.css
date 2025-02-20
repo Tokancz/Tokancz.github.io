@@ -154,6 +154,8 @@ section.stats {
 }
 iframe {
     border-radius: 20px;
+    width: 500px;
+    height: 280px;
 }
 hr {
     width: 100%;
@@ -205,8 +207,8 @@ section.contact {
     section.contact { width: 60%; }
 }
 @media (width <= 625px) {
-    body { height: 2300px; font-size: .75em;}
-    main { height: 2100px; }
+    body { height: 2200px; font-size: .75em;}
+    main { height: 2000px; }
     nav { gap: 2%; justify-content: center; }
     nav > div.navright { gap: 5px; }
     section.Yap { height: 750px; gap: 20px;}
@@ -217,4 +219,5 @@ section.contact {
     }
     section.KoTD { height: 550px; }
     .KoTD div > img { height: 350px; width: 350px; }
+    iframe {width: 400px; height: 210px;}
 }
