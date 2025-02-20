@@ -54,7 +54,7 @@ nav a {
     filter: drop-shadow(0 0 3px var(--secondary));
 }
 nav a:hover {
-    scale: 1.3;
+    transform: scale(1.3);
     transition: .3s;
     filter: drop-shadow(0 0 7px var(--secondary));
 }
@@ -177,11 +177,43 @@ footer p {
     filter: drop-shadow(0 0 3px var(--secondary));
 }
 section.contact {
-    width: 30%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 /*Responzivita*/
-@media (width <= 950px) {}
+@media (width <= 1140px) {
+    body { height: 2400px; }
+    main { width: 80%; height: 2200px; }
+    section.Yap { height: 650px; }
+    nav { gap: 10%; }
+    nav > div.navcenter { width: 60%; }
+    section.KoTD { width: 90%; }
+    section.contact { width: 50%; }
+}
+@media (width <= 800px) {
+    body { height: 2400px; }
+    main { width: 100%; height: 2200px; }
+    nav { gap: 3%; }
+    nav > div.navcenter { width: 70%; }
+    nav a:hover { transform: scale(1.1); }
+    section.split:hover { transform: scale(1.05); }
+    main > p {font-size: 1.5em; }
+    section.KoTD { width: 100%; border-radius: 0; }
+    section.contact { width: 60%; }
+}
+@media (width <= 615px) {
+    body { height: 2500px; font-size: .75em;}
+    main { height: 2300px; }
+    nav { gap: 0%; }
+    section.Yap { height: 750px; gap: 20px;}
+    section.split {
+        height: 80%;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    /*
+    footer p { font-size: 1.2em; }*/
+}
