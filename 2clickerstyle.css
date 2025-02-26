@@ -20,7 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(ClickerBG2.jpeg);
+    background-image: url(ClickerBG.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(10px);
