@@ -34,17 +34,21 @@ nav {
     align-items: center;
     gap: 20%;
 }
-
 nav > div.navcenter {
     display: flex;
     justify-content: space-evenly;
     width: 40%;
 }
-div.navcenter > a#text { display: inline; }
-div.navcenter > a#icon { display: none; }
+div.navcenter > section {
+    display: flex;
+    gap: 15px;
+    transition: 1s;
+}
+a.text { display: inline; transition: 1s;}
+a.icon { display: none; transition: 1s;}
 nav > div.navright {
     display: flex;
-    gap: 30px;
+    gap: 15px;
 } 
 nav a {
     text-decoration: none;
@@ -201,8 +205,9 @@ section.contact {
     main { width: 100%; height: 2200px; }
     nav { gap: 3%; }
     nav > div.navcenter { width: 70%; }
-    div.navcenter > a#text { display: none; }
-    div.navcenter > a#icon { display: inline; }
+    a.text { display: none; }
+    a.icon { display: inline; }
+    div.navcenter > section:hover > a.text {display: inline; transition: 1s;}
     nav a:hover { transform: scale(1.1); }
     section.split:hover { transform: scale(1.05); }
     main > p {font-size: 1.5em; }
