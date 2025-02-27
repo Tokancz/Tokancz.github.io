@@ -72,9 +72,12 @@
         <a href="2index.html">KoTD</a>
         <div class="navcenter">
             <a href="2index.html"><i class="fa-solid fa-house"></i></a>
-            <a href="2clickerindex.html">Clicker</a>
-            <a href="">Upload</a>
-            <a href="">About me</a>
+            <a href="2clickerindex.html" id="text">Clicker</a>
+            <a href="2clickerindex.html" id="icon"><i class="fa-solid fa-computer-mouse"></i></a>
+            <a href="" id="text">Upload</a>
+            <a href="" id="icon"><i class="fa-solid fa-upload"></i></a>
+            <a href="" id="text">About me</a>
+            <a href="" id="icon"><i class="fa-solid fa-address-card"></i></a>
             <a href=""><i class="fa-solid fa-image"></i></a>
         </div>
         <div class="navright">
@@ -87,14 +90,14 @@
             <h1><i>Kitten of The Day</i></h1>
             <section class="split">
                 <h2>Welcome to <i>Kitten of the Day!</i> Your daily dose of feline cuteness awaits. Each day, discover a new adorable cat to brighten your mood and make you smile</h2>
-                <img src="Kitten.jpg" alt="Kitten" width="300px" onclick="Meow()">
+                <img src="Kitten.jpg" alt="Kitten" width="300px" onclick="Meow()" draggable="false">
             </section>
         </section>
         <p class="meow">Meowww</p>
         <p>,And Todays <i>Kitten of The Day</i> is ....</p>
         <section class="KoTD">
             <div class="Kitten">
-                <img src="Cat.jpg" alt="Kitten of The Day" id="kitty" onclick="Meow()">
+                <img src="Cat.jpg" alt="Kitten of The Day" id="kitty" onclick="Meow()" draggable="false">
             </div>
             <section class="stats">
                 <p>Name : <span id="name">Unknown</span></p>
