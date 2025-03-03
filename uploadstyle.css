@@ -20,7 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(UploadBG.jpeg);
+    background-image: url(BG.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(15px);
@@ -52,7 +52,7 @@ nav a {
     text-decoration: none;
     color: var(--secondary);
     transition: .3s;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 500;
     filter: drop-shadow(0 0 3px var(--secondary));
 }
