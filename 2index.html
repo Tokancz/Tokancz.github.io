@@ -72,8 +72,8 @@
         <a href="2index.html">KoTD</a>
         <div class="navcenter">
             <section>
-                <a href="2index.html" class="icon"><i class="fa-solid fa-house"></i></a>
-                <a href="2index.html" class="text">Home</a>
+                <a href="2index.html" class="icon" id="current"><i class="fa-solid fa-house"></i></a>
+                <a href="2index.html" class="text" id="current">Home</a>
             </section>
             <section>
                 <a href="2clickerindex.html" class="icon"><i class="fa-solid fa-computer-mouse"></i></a>
@@ -93,7 +93,6 @@
             </section>
         </div>
         <div class="navright">
-            <a href=""><label><input type="checkbox" value="color" name="color-scheme" checked><i class="fa-solid fa-lightbulb" onclick="LightSwitch()"></i></label></a> <!--Mozna useles-->
             <a href=""><i class="fa-solid fa-user"></i></a>
         </div>
     </nav>
@@ -101,29 +100,31 @@
         <section class="Yap">
             <h1><i>Kitten of The Day</i></h1>
             <section class="split">
-                <h2>Welcome to <i>Kitten of the Day!</i> Your daily dose of feline cuteness awaits. Each day, discover a new adorable cat to brighten your mood and make you smile</h2>
+                <h2>Welcome to <i id="red">Kitten of the Day!</i> Your daily dose of feline cuteness awaits. Each day, discover a new adorable cat to brighten your mood and make you smile</h2>
                 <img src="Kitten.jpg" alt="Kitten" width="300px" onclick="Meow()" draggable="false">
             </section>
         </section>
         <p class="meow">Meowww</p>
-        <p>,And Todays <i>Kitten of The Day</i> is ....</p>
-        <section class="KoTD">
-            <div class="Kitten">
-                <img src="Cat.jpg" alt="Kitten of The Day" id="kitty" onclick="Meow()" draggable="false">
-            </div>
-            <section class="stats">
-                <p>Name : <span id="name">Unknown</span></p>
-                <p>Age : <span id="age">Unknown</span></p>
-                <p>Breed : <span id="breed">Unknown</span></p>
-                <p>Special : <span id="special">Unknown</span></p>
+        <section class="group">
+            <p>,And Todays <i id="red">Kitten of The Day</i> is ....</p>
+            <section class="KoTD">
+                <div class="Kitten">
+                    <img src="Cat.jpg" alt="Kitten of The Day" id="kitty" onclick="Meow()" draggable="false">
+                </div>
+                <section class="stats">
+                    <p>Name : <span id="name">Unknown</span></p>
+                    <p>Age : <span id="age">Unknown</span></p>
+                    <p>Breed : <span id="breed">Unknown</span></p>
+                    <p>Special : <span id="special">Unknown</span></p>
+                </section>
             </section>
+            <p>if This isnt <i id="red">Enough</i> ...</p>
+            <iframe src="https://www.youtube.com/embed/ptfWZs7ZdXE" frameborder="0"></iframe>
         </section>
-        <p>if This isnt Enough ...</p>
-        <iframe src="https://www.youtube.com/embed/ptfWZs7ZdXE" frameborder="0"></iframe>
     </main>
     <hr>
     <footer>
-        <p>Contact Me:</p>
+        <p id="red">Contact Me:</p>
         <section class="contact">
             <p><i class="fa-regular fa-envelope"></i> matyasklubal@gmail.com</p>
             <p><i class="fa-brands fa-instagram"></i> tunakos_</p>

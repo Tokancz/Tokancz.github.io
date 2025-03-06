@@ -13,7 +13,6 @@
         color-scheme: light;
     }
 }
-
 body {
     width: 100vw;
     height: 1500px;
@@ -75,7 +74,15 @@ main {
     flex-direction: column;
     align-items: center;
     filter: drop-shadow(0 0 100px var(--background));
-    gap: 60px;
+    gap: 40px;
+}
+h2 {
+    font-size: 3em;
+    text-align: center;
+    padding-top: 30px;
+}
+section.fileupload {
+    background-color: var(--backdrop);
 }
 
 hr {
