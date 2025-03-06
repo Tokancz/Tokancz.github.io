@@ -34,16 +34,16 @@
         <a href="2index.html">KoTD</a>
         <div class="navcenter">
             <section>
-                <a href="2index.html" class="icon" id="current"><i class="fa-solid fa-house"></i></a>
-                <a href="2index.html" class="text" id="current">Home</a>
+                <a href="2index.html" class="icon"><i class="fa-solid fa-house"></i></a>
+                <a href="2index.html" class="text">Home</a>
             </section>
             <section>
                 <a href="2clickerindex.html" class="icon"><i class="fa-solid fa-computer-mouse"></i></a>
                 <a href="2clickerindex.html" class="text">Clicker</a>
             </section>
             <section>
-                <a href="uploadindex.html" class="icon"><i class="fa-solid fa-upload"></i></a>
-                <a href="uploadindex.html" class="text">Upload</a>
+                <a href="uploadindex.html" class="icon" id="current"><i class="fa-solid fa-upload"></i></a>
+                <a href="uploadindex.html" class="text" id="current">Upload</a>
             </section>
             <section>
                 <a href="" class="icon"><i class="fa-solid fa-address-card"></i></a>
@@ -59,14 +59,19 @@
         </div>
     </nav>
     <main>
-       <h2>Upload your file and hope it gets aproved</h2>
+       <h2>Upload your own Kitty pic and hope it gets aproved :3</h2>
        <section class="fileupload">
             <p>Choose a file:</p>
             <form action="">
-                <input type="file" multiple accept=".jpg,.svg,.png,.webp">
+                <input type="file" id="files" multiple accept=".jpg,.svg,.png,.webp">
+                <label for="files"><i class="fa-solid fa-upload"></i></label>
                 <input type="submit">
             </form>
+            
        </section>
+       <p class="about">About upload: </p>
+       <p class="details">Your image will be sent to the database after the <i id="red">validation</i> and you 
+        should be able to see your kitten in the <i id="red">gallery</i>. if not please contact me and see why it isnt showing there :3</p>
     </main>
     <hr>
     <footer>

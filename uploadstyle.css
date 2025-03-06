@@ -15,7 +15,7 @@
 }
 body {
     width: 100vw;
-    height: 1500px;
+    height: 1300px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,21 +78,85 @@ nav > div.navright {
 }
 main {
     width: 60%;
-    height: 1300px;
+    height: 1100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     filter: drop-shadow(0 0 100px var(--background));
-    gap: 40px;
+    gap: 60px;
 }
 h2 {
-    font-size: 3em;
+    font-size: 2.5em;
     text-align: center;
     padding-top: 30px;
     color: var(--primary);
 }
 section.fileupload {
+    width: 75%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     background-color: var(--backdrop);
+    border-radius: 15px;
+}
+section.fileupload p {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+form {
+    width: 60%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+} 
+form input[type=file] {
+    display: none;
+}
+form label {
+    background-color: var(--backdrop);
+    width: 100%;
+    height: 70%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px var(--background);
+    text-align: center;
+    font-size: 5em;
+    align-content: center;
+    border: 2px solid var(--backdrop);
+}
+form label i {
+    filter: drop-shadow(0 0 8px var(--secondary));
+    transition: .3s;
+}
+form label i:hover { 
+    transform: scale(1.1);
+    transition: .3s;
+}
+form input[type=submit] {
+    height: 20%;
+    width: 40%;
+    background: var(--backdrop);
+    box-shadow: 2px 2px 8px var(--background);
+    border: 2px solid var(--backdrop);
+    color: var(--secondary);
+    font-size: 1.5em;
+    border-radius: 40px;
+}
+main > p {
+    width: 80%;
+    font-size: 1.4em;
+    color: var(--secondary);
+}
+main > p.about {text-align: start; font-weight: 600;}
+main > p.details {
+    width: 70%;
+    background-color: var(--backdrop);
+    padding: 20px;
+    border-radius: 10px;
 }
 
 hr {
@@ -118,7 +182,7 @@ footer p, footer a {
     color: var(--secondary);
     filter: drop-shadow(0 0 3px var(--secondary));
 }
-footer p#red { color: var(--primary); filter: drop-shadow(0 0 3px var(--primary))}
+p#red, i#red { color: var(--primary); filter: drop-shadow(0 0 3px var(--primary))}
 section.contact {
     width: 35%;
     display: flex;
@@ -128,15 +192,13 @@ section.contact {
 
 /*Responzivita*/
 @media (width <= 1140px) {
-    body { height: 2400px; }
-    main { width: 80%; height: 2200px; }
+    main { width: 80%; }
     nav { gap: 10%; }
     nav > div.navcenter { width: 60%; }
     section.contact { width: 50%; }
 }
 @media (width <= 800px) {
-    body { height: 2400px; }
-    main { width: 100%; height: 2200px; }
+    main { width: 100%;}
     nav { gap: 3%; }
     nav > div.navcenter { width: 70%; }
     a.text { display: none; }
@@ -146,13 +208,17 @@ section.contact {
     section.contact { width: 60%; }
 }
 @media (width <= 625px) {
-    body { height: 2200px; font-size: .75em;}
-    main { height: 2000px; }
-    nav { gap: 2%; justify-content: center; }
+    body { height: 1000px; font-size: .71em;}
+    nav { gap: 2%; justify-content: space-around; }
     nav > div.navcenter { width: 300px;}
     nav > div.navright { gap: 5px; }
+    section.fileupload { height: 350px;}
 }
 @media (width <= 430px) {
+    body { height: 900px;}
+    main {gap: 20px;}
+    section.fileupload { height: 300px;}
+    form input[type=submit] {width: 60%;}
     footer { flex-direction: column; }
     section.contact { width: 100%; text-align: center;}
 }
