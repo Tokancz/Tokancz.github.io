@@ -6,7 +6,7 @@
     --primary:light-dark(#d71d36,#d71d36);
     --secondary:light-dark(#f5f5f5,#f5f5f5);
     --backdrop:light-dark(#29272750,#27292850);
-    --accent:light-dark(#7e1120,#7e1120);
+    --glow:light-dark(#ca3934,#ca3934);
     --background:light-dark(#201e1e,#202020);
 
     &:has(input[name="color-scheme"][value="color"]:checked) {
@@ -68,7 +68,7 @@ div.navcenter > section {
 div.navcenter a { font-size: 1.2em;}
 div.navcenter a#current {
     color: var(--primary);
-    filter: drop-shadow(0 0 3px var(--primary));
+    filter: drop-shadow(0 0 3px var(--glow));
 }
 a.text { display: inline; transition: 1s;}
 a.icon { display: none; transition: 1s;}
@@ -90,6 +90,7 @@ h2 {
     text-align: center;
     padding-top: 30px;
     color: var(--primary);
+    filter: drop-shadow(0 0 3px var(--glow));
 }
 section.fileupload {
     width: 75%;
@@ -182,7 +183,7 @@ footer p, footer a {
     color: var(--secondary);
     filter: drop-shadow(0 0 3px var(--secondary));
 }
-p#red, i#red { color: var(--primary); filter: drop-shadow(0 0 3px var(--primary))}
+p#red, i#red { color: var(--primary); filter: drop-shadow(0 0 3px var(--glow))}
 section.contact {
     width: 35%;
     display: flex;
