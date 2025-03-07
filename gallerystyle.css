@@ -180,6 +180,7 @@ section.contact {
     a.icon { display: inline; }
     div.navcenter > section:hover > a.text {display: inline; transition: 1s;}
     nav a:hover { transform: scale(1.1); }
+    section.container {width: 90%;}
     section.contact { width: 60%; }
 }
 @media (width <= 625px) {
