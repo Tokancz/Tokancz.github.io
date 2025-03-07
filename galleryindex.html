@@ -35,18 +35,21 @@
         
         const KittenArray = [cat1,cat2,cat3,cat4,cat5,cat6,cat7,cat8,cat9,cat10]
 
-        function kittychange() {
-            catsrcIndex = Math.floor(Math.random() * KittenArray.length);
+        function loadgallery() {
+
+            for (let index in KittenArray){
+                var idnum = Number(index) + Number(1);
+
+                if (document.getElementById("kitty" + idnum) != null) {
+                    document.getElementById("kitty" + idnum).src=KittenArray[index].src;
+                    document.getElementById("name" + idnum).textContent=KittenArray[index].name;
+                }
+            }
             
-            document.getElementById("kitty").src=KittenArray[catsrcIndex].src;
-            document.getElementById("name").textContent=KittenArray[catsrcIndex].name;
-            document.getElementById("age").textContent=KittenArray[catsrcIndex].age;
-            document.getElementById("breed").textContent=KittenArray[catsrcIndex].breed;
-            document.getElementById("special").textContent=KittenArray[catsrcIndex].special;
         }
     </script>
 </head>
-<body>
+<body onload="loadgallery()">
     <nav>
         <a href="2index.html">KoTD</a>
         <div class="navcenter">
@@ -78,23 +81,47 @@
     <main>
         <section class="container">
             <section><!--img a jmeno on hover-->
-                <img src="Cat.jpg" alt="kitten1">
-                <p>kitten 1</p>
+                <img src="Cat.jpg" alt="kitten1" id="kitty1">
+                <p id="name1"></p>
             </section>
             <section>
-                <p>kitten 2</p>
+                <img src="" alt="kitten2" id="kitty2">
+                <p id="name2"></p>
             </section>
             <section>
-                <p>kitten 3</p>
+                <img src="" alt="kitten3" id="kitty3">
+                <p id="name3"></p>
             </section>
             <section>
-                <p>kitten 4</p>
+                <img src="" alt="kitten4" id="kitty4">
+                <p id="name4"></p>
             </section>
             <section>
-                <p>kitten 5</p>
+                <img src="" alt="kitten5" id="kitty5">
+                <p id="name5"></p>
+            </section>
+            <section>
+                <img src="" alt="kitten6" id="kitty6">
+                <p id="name6"></p>
+            </section>
+            <section>
+                <img src="" alt="kitten7" id="kitty7">
+                <p id="name7"></p>
+            </section>
+            <section>
+                <img src="" alt="kitten8" id="kitty8">
+                <p id="name8"></p>
+            </section>
+            <section>
+                <img src="" alt="kitten9" id="kitty9">
+                <p id="name9"></p>
+            </section>
+            <section>
+                <img src="" alt="kitten10" id="kitty10">
+                <p id="name10"></p>
             </section>
         </section>
-       
+        <p>More cats comming soon!</p>
     </main>
     <hr>
     <footer>

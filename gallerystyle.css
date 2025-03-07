@@ -15,7 +15,7 @@
 }
 body {
     width: 100vw;
-    height: 1300px;
+    height: 1800px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,7 +78,7 @@ nav > div.navright {
 }
 main {
     width: 60%;
-    height: 1100px;
+    height: 1600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,15 +87,17 @@ main {
 }
 section.container {
     width: 100%;
-    height: 800px;
+    height: 1300px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(8, 1fr);
     gap: 30px;
     padding: 30px;
     margin-top: 40px;
     border-radius: 20px;
     background-color: var(--backdrop);
+    overflow:auto;
+    box-shadow: 4px 4px 6px var(--background);
 }
 section.container > section {
     background-color: var(--backdrop);
@@ -108,6 +110,7 @@ section.container > section:hover {
 }
 section.container > section img {
     width: 100%;
+    height: 100%;
     border-radius: 15px;
     transition: .2s;
 }
@@ -123,8 +126,12 @@ section.container > section p {
 section.container > section:hover p {
     display: inline;
     position: fixed;
-    bottom: 10px;
+    top: 10px;
     left: 10px;
+}
+main > p {
+    font-size: 2em;
+    filter: drop-shadow(0 0 3px var(--secondary));
 }
 
 hr {
@@ -176,14 +183,16 @@ section.contact {
     section.contact { width: 60%; }
 }
 @media (width <= 625px) {
-    body { height: 1000px; font-size: .71em;}
+    body { height: 1200px; font-size: .71em;}
     nav { gap: 2%; justify-content: space-around; }
     nav > div.navcenter { width: 300px;}
     nav > div.navright { gap: 5px; }
+    section.container { height: 800px;}
 }
 @media (width <= 430px) {
-    body { height: 900px;}
+    body { height: 1000px;}
     main {gap: 20px;}
+    section.container { height: 650px;}
     footer { flex-direction: column; }
     section.contact { width: 100%; text-align: center;}
 }
