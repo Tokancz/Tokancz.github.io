@@ -160,7 +160,7 @@
                 <div class="button" onclick="Meow()">
                     <img id="kitty" src="https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t1080x1080.jpg" alt="kitty" draggable="false">
                 </div>
-                <section class="upgrades">
+                <section class="upgrades"> <!--Dodelat funkcionalitu-->
                     <section onclick='upgrade("tonque")'>
                         <p>Tongue lvl: <span id="tonque">0</span></p>
                         <p class="cost">Cost: <span id="Ctonque">0</span></p>
@@ -179,6 +179,11 @@
                 </section>
             </section>
             <p class="meows">Meows: <span id="counter">0</span></p>
+            <!--Mute/unmute-->
+            <input type="checkbox" name="mute" id="mute">
+            <label for="mute" id="loud"><i class="fa-solid fa-volume-high"></i></label>
+            <label for="mute" id="muted"><i class="fa-solid fa-volume-xmark"></i></label>
+
         </section>
         <h4>Cat quotes: </h4>
         <section class="container">

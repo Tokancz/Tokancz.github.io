@@ -175,6 +175,18 @@ p.meows {
     font-weight: 700;
     filter: drop-shadow(0 0 10px var(--secondary));
 }
+.clicker input[type=checkbox] {display: none;}
+label {
+    position: absolute;
+    display: none;
+    font-size: 2em;
+    bottom: 60px;
+    left: 80px;
+}
+input[type=checkbox]:checked + label#loud { display: none; }
+input[type=checkbox]:checked + label#muted { display: inline; }
+input[type=checkbox]:not(:checked) + label#loud { display: inline; }
+input[type=checkbox]:not(:checked) + label#muted { display: none; }
 h4 {
     font-weight: 600;
     font-size: 2.5em;
