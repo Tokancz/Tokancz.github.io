@@ -157,6 +157,7 @@ section.upgrades > section {
 section.upgrades > section:hover {
     transition: .3s;
     transform: scale(1.05);
+    filter: contrast(1.1);
     cursor: pointer;
 }
 section.upgrades p {

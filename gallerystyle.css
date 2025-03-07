@@ -85,6 +85,42 @@ main {
     filter: drop-shadow(0 0 100px var(--background));
     gap: 60px;
 }
+section.container {
+    width: 100%;
+    height: 800px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 30px;
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 20px;
+    background-color: var(--backdrop);
+}
+section.container > section {
+    background-color: var(--backdrop);
+    border-radius: 15px;
+    transition: .3s;
+}
+section.container > section:hover {
+    transition: .3s;
+    transform: scale(1.05);
+}
+section.container > section img {
+    width: 100%;
+    border-radius: 15px;
+}
+section.container > section p {
+    display: none;
+    font-size: 2em;
+    font-weight: 600;
+}
+section.container > section:hover p {
+    display: inline;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
 
 hr {
     width: 100%;
