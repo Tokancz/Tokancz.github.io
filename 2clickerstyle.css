@@ -178,7 +178,6 @@ p.meows {
 .clicker input[type=checkbox] {display: none;}
 label {
     position: absolute;
-    display: none;
     font-size: 2em;
     bottom: 60px;
     left: 80px;
