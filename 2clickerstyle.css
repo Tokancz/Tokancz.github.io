@@ -182,10 +182,10 @@ label {
     bottom: 60px;
     left: 80px;
 }
-input[type=checkbox]:checked + label#loud { display: none; }
-input[type=checkbox]:checked + label#muted { display: inline; }
-input[type=checkbox]:not(:checked) + label#loud { display: inline; }
-input[type=checkbox]:not(:checked) + label#muted { display: none; }
+input[type=checkbox]:checked ~ label#loud { display: none; }
+input[type=checkbox]:checked ~ label#muted { display: inline; }
+input[type=checkbox]:not(:checked) ~ label#loud { display: inline; }
+input[type=checkbox]:not(:checked) ~ label#muted { display: none; }
 h4 {
     font-weight: 600;
     font-size: 2.5em;
