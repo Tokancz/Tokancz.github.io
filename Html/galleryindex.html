@@ -38,7 +38,7 @@
         function loadgallery() {
 
             for (let index in KittenArray){
-                var idnum = Number(index) + Number(1);
+                let idnum = Number(index) + Number(1);
 
                 if (document.getElementById("kitty" + idnum) != null) {
                     document.getElementById("kitty" + idnum).src=KittenArray[index].src;
