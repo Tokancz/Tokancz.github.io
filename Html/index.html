@@ -2,27 +2,26 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>Kitten of The Day</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://api.ssps.cajthaml.eu/file/64d9f18f79dad891e8a07c73">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="/Styles/indexstyle.css">
+    <link rel="icon" type="image/png" href="/Images/favicon.ico">
+    <title>Kitten of The Day</title>
 
     <script>
         setInterval(kittychange,5000);
 
         function Meow()
         { 
-            var meow1 = new Audio('Meow.mp3');
-            var meow2 = new Audio('Meow2.mp3');
-            var meow3 = new Audio('Meow3.mp3');
-            var meow4 = new Audio('Meow4.mp3');
-            var meow5 = new Audio('Meow5.mp3');
-            var meow6 = new Audio('Meow6.mp3');
-            var meow7 = new Audio('Meow7.mp3');
-
-            //count ++;
-            //document.getElementById("counter").innerHTML = count;
+            let meow1 = new Audio('/Audio/Meow.mp3');
+            let meow2 = new Audio('/Audio/Meow2.mp3');
+            let meow3 = new Audio('/Audio/Meow3.mp3');
+            let meow4 = new Audio('/Audio/Meow4.mp3');
+            let meow5 = new Audio('/Audio/Meow5.mp3');
+            let meow6 = new Audio('/Audio/Meow6.mp3');
+            let meow7 = new Audio('/Audio/Meow7.mp3');
             
             const audioArray = [meow1, meow2, meow3, meow4, meow5, meow6, meow7];
 
@@ -66,58 +65,83 @@
 
             console.log("change");
         }
-
-        function LightSwitch() {
-            var clickS = new Audio("click.mp3");
-            clickS.play();
-        }
-
     </script>
 </head>
 <body onload="kittychange()">
-    <canvas class="CatPattern"></canvas>
     <nav>
-        <section class="main">
-            <a href="index.html"><i class="fa-solid fa-house"></i></a>
-        </section>
-        <section class="options">
-            <a href="">Kittens</a>
-            <a href="2index.html"><i class="fa-solid fa-arrow-up-from-bracket"></i></i></a>
-            <a href="ClickerIndex.html">Clicker</a>
-        </section>
-        <section class="profile">
-            <i class="fa-solid fa-user"></i>
-        </section>
+        <a href="index.html">KoTD</a>
+        <div class="navcenter">
+            <section>
+                <a href="index.html" class="icon" id="current"><i class="fa-solid fa-house"></i></a>
+                <a href="index.html" class="text" id="current">Home</a>
+            </section>
+            <section>
+                <a href="clickerindex.html" class="icon"><i class="fa-solid fa-computer-mouse"></i></a>
+                <a href="clickerindex.html" class="text">Clicker</a>
+            </section>
+            <section>
+                <a href="uploadindex.html" class="icon"><i class="fa-solid fa-upload"></i></a>
+                <a href="uploadindex.html" class="text">Upload</a>
+            </section>
+            <section>
+                <a href="aboutmeindex.html" class="icon"><i class="fa-solid fa-address-card"></i></a>
+                <a href="aboutmeindex.html" class="text">About me</a>
+            </section>
+            <section>
+                <a href="galleryindex.html" class="icon"><i class="fa-solid fa-image"></i></a>
+                <a href="galleryindex.html" class="text">Gallery</a>
+            </section>
+        </div>
+        <div class="navright">
+            <a href=""><i class="fa-solid fa-user"></i></a>
+        </div>
     </nav>
     <main>
-        <article class="about">
-            <section class="title">
-                <H1>Kitten of The Day</H1>
+        <section class="Yap">
+            <h1><i>Kitten of The Day</i></h1>
+            <section class="split">
+                <h2>Welcome to <i id="red">Kitten of the Day!</i> Your daily dose of feline cuteness awaits. Each day, discover a new adorable cat to brighten your mood and make you smile</h2>
+                <img src="/Images/Kitten.jpg" alt="Kitten" width="300px" onclick="Meow()" draggable="false">
             </section>
-            <section class="yapping">
-                <h2>Welcome to Kitten of the Day! Your daily dose of feline cuteness awaits. Each day, discover a new adorable cat to brighten your mood and make you smile</h2>
+        </section>
+        <p class="meow">Meowww</p>
+        <section class="group">
+            <p>,And Todays <i id="red">Kitten of The Day</i> is ....</p>
+            <section class="KoTD">
+                <div class="Kitten">
+                    <img src="/Images/Cat.jpg" alt="Kitten of The Day" id="kitty" onclick="Meow()" draggable="false">
+                </div>
+                <section class="stats">
+                    <p>Name : <span id="name">Unknown</span></p>
+                    <p>Age : <span id="age">Unknown</span></p>
+                    <p>Breed : <span id="breed">Unknown</span></p>
+                    <p>Special : <span id="special">Unknown</span></p>
+                </section>
             </section>
-        </article>
-        <article class="Kitten_OTD">
-            <div class="Kitten_IMG" onclick="Meow()">
-                <img id="kitty" src="https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t1080x1080.jpg" alt="kitty" class="kitten">
-            </div>
-            <section class="stats">
-                <h3>Name : <span id="name">Unknown</span></h3>
-                <h3>Age : <span id="age">Unknown</span></h3>
-                <h3>Breed : <span id="breed">Unknown</span></h3>
-                <h3>Special : <span id="special">Unknown</span></h3>
-            </section>
-        </article>
-
-        <label><input type="checkbox" value="color" name="color-scheme" checked><i class="fa-solid fa-lightbulb" onclick="LightSwitch()"></i></label>
+            <p>if This isnt <i id="red">Enough</i> ...</p>
+            <iframe src="https://www.youtube.com/embed/ptfWZs7ZdXE" frameborder="0"></iframe>
+        </section>
     </main>
+    <hr>
+    <footer>
+        <p id="red">Contact Me:</p>
+        <section class="contact">
+            <p><i class="fa-regular fa-envelope"></i> matyasklubal@gmail.com</p>
+            <a href="https://www.instagram.com/tunakos_/"><i class="fa-brands fa-instagram"></i> tunakos_</a>
+        </section>
+    </footer>
 </body>
 </html>
 
 <!--
-Color Palette:
-    https://colorhunt.co/palette/fef3e2fab12ffa812ffa4032
-Site Layout:
-    https://www.wix.com/blog/website-layouts
+Design Ideas:
+    Colors: https://coolors.co/visualizer/d71d36-7e1120-292727-201e1e-f5f5f5
+    Inspiration: 
+        https://www.osmo.supply/
+        https://dribbble.com/shots/23875651-Spotify-App
+    Animations: https://animate.style/
+    Photos: https://pin.it/M3KpGRDvF
+    Layouts: https://www.wix.com/blog/website-layouts
+
+    Todo:
 -->

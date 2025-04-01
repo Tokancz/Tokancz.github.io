@@ -2,22 +2,25 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>Kitty Clicker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://api.ssps.cajthaml.eu/file/64d9f18f79dad891e8a07c73">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="/Styles/clickerstyle.css">
+    <link rel="icon" type="image/png" href="/Images/favicon.ico">
+    <title>Kitty Clicker</title>
 
     <script>
-        var meows = getCookie("meow");//Inicialization of variables
-        var mode = true;//docasna promnena
+        let meows = getCookie("meow");//Inicialization of variables
+        let muted = false; //console fix, ver to let, soubory
         
-        var meow1 = new Audio('Meow.mp3');
-        var meow2 = new Audio('Meow2.mp3');
-        var meow3 = new Audio('Meow3.mp3');
-        var meow4 = new Audio('Meow4.mp3');
-        var meow5 = new Audio('Meow5.mp3');
-        var meow6 = new Audio('Meow6.mp3');
-        var meow7 = new Audio('Meow7.mp3');
+        let meow1 = new Audio('/Audio/Meow.mp3');
+        let meow2 = new Audio('/Audio/Meow2.mp3');
+        let meow3 = new Audio('/Audio/Meow3.mp3');
+        let meow4 = new Audio('/Audio/Meow4.mp3');
+        let meow5 = new Audio('/Audio/Meow5.mp3');
+        let meow6 = new Audio('/Audio/Meow6.mp3');
+        let meow7 = new Audio('/Audio/Meow7.mp3');
 
         setInterval(AFKCalc,1000);
 
@@ -45,7 +48,10 @@
             
             const audioArray = [meow1, meow2, meow3, meow4, meow5, meow6, meow7]
             let Raudio = audioArray[Math.floor(Math.random() * (audioArray.length - 1))]
-            Raudio.volume = .4;
+
+            if (muted) {console.log("muted"); Raudio.volume = 0;}
+            else {console.log("unmuted"); Raudio.volume = .6;}
+    
             Raudio.play();
 
             addCookie("meow",meows);
@@ -53,22 +59,27 @@
             Load();
         }
 
-        function multiplierCalc(){//calculates the multiplier
-            var multiplier = 1; //starting value
+        function mute() {
+            console.log("change", muted)
+            return muted = !muted;
+        }
 
-            var tonquelvl = getCookie("tonque");//+1
+        function multiplierCalc(){//calculates the multiplier
+            let multiplier = 1; //starting value
+
+            let tonquelvl = getCookie("tonque");//+1
             multiplier += Number(tonquelvl);
             
-            var sillylvl = getCookie("silly") * 0.1;//+0.1
+            let sillylvl = getCookie("silly") * 0.1;//+0.1
             multiplier += Number(multiplier * sillylvl);
 
             return Number(multiplier);
         }
 
         function AFKCalc(){
-            var amount = 0; //starting value
+            let amount = 0; //starting value
 
-            var braincellslvl = getCookie("braincells");//+1
+            let braincellslvl = getCookie("braincells");//+1
 
             meows = Number(meows)
             amount += Number(braincellslvl);
@@ -81,15 +92,16 @@
             Load();
             }
         }
-
+        
         function upgradeCost(name){
-            var lvl = getCookie(name);
+            let lvl = getCookie(name);
             return (Number(lvl) + 1) * 50;
         }
 
         function upgrade(name) {//handles upgrading
-            var cost = upgradeCost(name)
-            var lvl = getCookie(name);
+            let lvl = getCookie(name);
+            let cost = (Number(lvl) + 1) * 50;
+
             if ( cost <= meows){
                 lvl ++;
                 meows -= cost;
@@ -119,279 +131,109 @@
             }
             return "";
         }
-
-        function LightSwitch() {
-            var clickS = new Audio("click.mp3");
-            clickS.play();
-
-            mode = !Boolean(mode)
-
-            if (mode){
-                document.getElementById("kitty").src = "https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t1080x1080.jpg";
-            }
-            else {
-                document.getElementById("kitty").src = "https://assets3.thrillist.com/v1/image/3005222/792x918/scale;webp=auto;jpeg_quality=60.jpg";
-            }
-            console.log(mode)
-        }
-
     </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-
-        :root{
-            color-scheme: light;
-
-            --primary:light-dark(#38173a,#fde4ff);
-            --secondary:light-dark(#6f2364,#9937aa);
-            --shadows:light-dark(#8f4282,#6f0989);
-            --accent:light-dark(#e37bac,#4e0560);
-            --background:light-dark(#ed88bf,#33004d);
-
-            &:has(input[name="color-scheme"][value="color"]:checked) {
-                color-scheme: dark;
-            }
-        }
-
-        body {
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            flex-direction: column;
-            background-image: repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in srgb, var(--accent), var(--background))  52%, var(--accent) 55%);
-            font-family: "Ubuntu", sans-serif;
-            font-style: normal;
-        }
-        canvas {
-            position: absolute;
-        }
-        canvas.CatPattern {
-            width: 100vw;
-            height: 100vh;
-            position: absolute;
-            background-image: url(CatPattern.png);
-            background-size: 30%;
-            opacity: .2;
-        }
-        nav {
-            height: 10%;
-            display: flex;
-            align-items: center;
-            position: relative;
-            justify-content: space-evenly;
-            gap: 30%;
-            padding: 0 3%;
-        }
-        nav > section.main {
-            width:10%;
-            display: flex;
-            justify-content: flex-start;
-        }
-        nav > section.options {
-            width: 30%;
-            display: flex;
-            justify-content: space-around;
-            gap: 10%;
-        }
-        nav > section.profile {
-            width: 10%;
-            display: flex;
-            justify-content: flex-end;
-        }
-        nav > section a ,nav > section i {
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 40px;
-            color: var(--primary);
-            transition: .3s;
-        }
-        nav > section a:hover ,nav > section i:hover{
-            transform: scale(1.1);
-            filter: contrast(1.4);
-            transition: .3s;
-            cursor: pointer;
-        }
-        main {
-            height: 90%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        main > article.sides{
-            height: 70%;
-            width: 20%;
-            padding: 2% 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap:2%;
-            background-color: var(--secondary);
-            box-shadow: 10px 10px 50px 2px var(--shadows);
-            opacity: .8;
-            border-radius: 15px;
-            transition: .3s;
-        }
-        main > article.sides:hover{
-            width: 21%;
-            height: 73%;
-            transition: .3s;
-        }
-        main > article.sides h4 {
-            color: var(--background);
-            text-align: center;
-            font-size: 2em;
-            font-weight: 600;
-            user-select: none;
-        }
-        main > article.sides > section{
-            width: 80%;
-            height: 13%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--background);
-            filter: drop-shadow(5px 5px 10px var(--shadows));
-            opacity: .8;
-            border-radius: 15px;
-            transition: .3s;
-        }
-        main > article.sides > section:hover{
-            height: 15%;
-            transition: .3s;
-            cursor: pointer;
-        }
-        main > article.sides > section:active{
-            transition: .3s;
-            filter: drop-shadow(10px 10px 10px var(--shadows)) contrast(1.4);
-        }
-        main > article.sides > section > p{
-            color: var(--primary);
-            font-size: 1em;
-            font-weight: 600;
-            user-select: none;
-        }
-        main > article.sides > section > h5{
-            color: var(--primary);
-            font-size: 1.5em;
-            font-weight: 600;
-            user-select: none;
-        }
-        main > section{
-            width: 40%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
-        }
-        main > section H1 {
-            height: 5%;
-            text-align: center;
-            color: var(--primary);
-            font-size: 4em;
-            font-weight: 800;
-        }
-        main > section div.Kitten_IMG {
-            height: 60%;
-            cursor: pointer;
-            filter: drop-shadow(5px 5px 60px var(--shadows));
-            transition: .3s;
-        }
-        main > section div.Kitten_IMG:hover {
-            height: 65%;
-            transition: .3s;
-        }
-        main > section div.Kitten_IMG:active{
-            transform: rotate(360deg) scale(.9);
-            filter: drop-shadow(5px 5px 20px var(--shadows)) grayscale();
-            transition: .3s;
-        }
-        main > section > div.Kitten_IMG img{
-            height: 100%;
-            border-radius: 50%;
-        }
-        main > section h3 {
-            height: 5%;
-            text-align: center;
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 2em;
-        }
-        label input {
-            display: none;
-        }
-        label i {
-            position: absolute;
-            color: var(--primary);
-            bottom: 3%;
-            left:95%;
-            font-size: 2.5rem;
-        }
-        label i:hover {
-            filter: contrast(1.4);
-            transform: scale(.9);
-            transition: .3s;
-        }
-        img.SupCat {
-            width: 30%;
-            position: absolute;
-            left: 2%;
-            bottom: 0%;
-        }
-    </style>
 </head>
 <body onload="Load()">
-    <canvas class="CatPattern"></canvas>
     <nav>
-        <section class="main">
-            <a href="index.html"><i class="fa-solid fa-house"></i></a>
-        </section>
-        <section class="options">
-            <a href="">Kittens</a>
-            <a href=""><i class="fa-solid fa-arrow-up-from-bracket"></i></a>
-            <a href="ClickerIndex.html">Clicker</a>
-        </section>
-        <section class="profile">
-            <i class="fa-solid fa-user"></i>
-        </section>
+        <a href="index.html">KoTD</a>
+        <div class="navcenter">
+            <section>
+                <a href="index.html" class="icon"><i class="fa-solid fa-house"></i></a>
+                <a href="index.html" class="text">Home</a>
+            </section>
+            <section>
+                <a href="clickerindex.html" class="icon" id="current"><i class="fa-solid fa-computer-mouse"></i></a>
+                <a href="clickerindex.html" class="text" id="current">Clicker</a>
+            </section>
+            <section>
+                <a href="uploadindex.html" class="icon"><i class="fa-solid fa-upload"></i></a>
+                <a href="uploadindex.html" class="text">Upload</a>
+            </section>
+            <section>
+                <a href="aboutmeindex.html" class="icon"><i class="fa-solid fa-address-card"></i></a>
+                <a href="aboutmeindex.html" class="text">About me</a>
+            </section>
+            <section>
+                <a href="galleryindex.html" class="icon"><i class="fa-solid fa-image"></i></a>
+                <a href="galleryindex.html" class="text">Gallery</a>
+            </section>
+        </div>
+        <div class="navright">
+            <a href=""><i class="fa-solid fa-user"></i></a>
+        </div>
     </nav>
     <main>
-        <article class="sides">
-            <h4>AFK Upgrades</h4>
-            <section onclick='upgrade("braincells")'>
-                <h5>Brain Cells: <span id="braincells">0</span></h5>
-                <p>Cost: <span id="Cbraincells">0</span></p>
+        <h2>Kitty Clicker</h2>
+        <section class="clicker">
+            <section class="group">
+                <div class="button" onclick="Meow()">
+                    <img id="kitty" src="https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t1080x1080.jpg" alt="kitty" draggable="false">
+                </div>
+                <section class="upgrades"> <!--Dodelat funkcionalitu-->
+                    <section onclick='upgrade("tonque")'>
+                        <p>Tongue lvl: <span id="tonque">0</span></p>
+                        <p class="cost">Cost: <span id="Ctonque">0</span></p>
+                    </section>             
+                    <section onclick='upgrade("silly")'>
+                        <p>Silly lvl: <span id="silly">0</span></p>
+                        <p class="cost">Cost: <span id="Csilly">0</span></p>
+                    </section>
+                    <section onclick='upgrade("braincells")'>
+                        <p>Brain Cells: <span id="braincells">0</span></p>
+                        <p class="cost">Cost: <span id="Cbraincells">0</span></p>
+                    </section>
+                    <section></section>
+                    <section></section>
+                    <section></section>
+                </section>
             </section>
-        </article>
-        <section class="Cat_clicker">
-            <H1>Kitty Clicker</H1>
-            <div class="Kitten_IMG" onclick="Meow()">
-                <img id="kitty" src="https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t1080x1080.jpg" alt="kitty" class="kitten">
-            </div>
-            <H3>Meows: <span id="counter">0</span></H3>
-        </section>
-        <article class="sides">
-            <h4>Click Upgrades</h4>
-            <section onclick='upgrade("tonque")'>
-                <h5>Tongue lvl: <span id="tonque">0</span></h5>
-                <p>Cost: <span id="Ctonque">0</span></p>
-            </section>
-            <section onclick='upgrade("silly")'>
-                <h5>Silly lvl: <span id="silly">0</span></h5>
-                <p>Cost: <span id="Csilly">0</span></p>
-            </section>
-        </article>
+            <p class="meows">Meows: <span id="counter">0</span></p>
+            <!--Mute/unmute--> <!--Toggle-->
+            <input type="checkbox" name="mute" id="mute">
+            <label for="mute" id="loud" onclick="mute()"><i class="fa-solid fa-volume-high"></i></label>
+            <label for="mute" id="muted" onclick="mute()"><i class="fa-solid fa-volume-xmark"></i></label>
 
-        <label><input type="checkbox" value="color" name="color-scheme" checked><i class="fa-solid fa-lightbulb" onclick="LightSwitch()"></i></label>
-        <img class="SupCat" src="SupCat.png" alt="Suprised Cat">
+        </section>
+        <h4>Cat quotes: </h4>
+        <section class="container">
+            <section>
+                <p>“Time spent with cats is <i id="red">never</i> wasted.” </p>
+                <p>- Sigmund Freud</p>
+            </section>
+            <section>
+                <p>“Cats <i id="red">rule</i> the world.”</p>
+                <p>- Jim Davis</p>
+            </section>
+            <section>
+                <p>“Like all pure creatures, cats are <i id="red">practical</i>.”</p>
+                <p>- William S. Burroughs</p>
+            </section>
+            <section>
+                <p>“Cats will <i id="red">outsmart</i> dogs every time.”</p>
+                <p>- John Grogan</p>
+            </section>
+        </section>
     </main>
+    <hr>
+    <footer>
+        <p id="red">Contact Me:</p>
+        <section class="contact">
+            <p><i class="fa-regular fa-envelope"></i> matyasklubal@gmail.com</p>
+            <a href="https://www.instagram.com/tunakos_/"><i class="fa-brands fa-instagram"></i> tunakos_</a>
+        </section>
+    </footer>
 </body>
 </html>
 
 <!--
-Color Palette:
-    https://colorhunt.co/palette/fef3e2fab12ffa812ffa4032
-Site Layout:
-    https://www.wix.com/blog/website-layouts
+Design Ideas:
+    Colors: https://coolors.co/visualizer/d71d36-7e1120-292727-201e1e-f5f5f5
+    Inspiration: 
+        https://www.osmo.supply/
+        https://dribbble.com/shots/23875651-Spotify-App
+    Animations: https://animate.style/
+    Photos: https://pin.it/M3KpGRDvF
+    Layouts: https://www.wix.com/blog/website-layouts
+
+    Todo:
 -->

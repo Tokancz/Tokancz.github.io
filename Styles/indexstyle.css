@@ -20,7 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(0deg, rgba(231,75,96,0.1) 0%, rgba(81,11,21,0.1) 100%), url(BG.jpg);
+    background: linear-gradient(0deg, rgba(231,75,96,0.1) 0%, rgba(81,11,21,0.1) 100%), url(/Images/BG.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(10px);
