@@ -41,7 +41,6 @@ nav a {
     transition: .3s;
     font-size: 1.4em;
     font-weight: 500;
-    filter: drop-shadow(0 0 3px var(--secondary));
 }
 nav a:hover {
     transform: scale(1.3);
@@ -56,7 +55,7 @@ nav > div.navcenter {
     display: flex;
     justify-content: space-evenly;
     background-color: var(--backdrop);
-    border-radius: 30px;
+    border-radius: 10px;
     padding: 15px 0;
     box-shadow: 2px 2px 4px #000000;
 }
@@ -90,7 +89,6 @@ h2 {
     text-align: center;
     padding-top: 30px;
     color: var(--primary);
-    filter: drop-shadow(0 0 3px var(--glow));
 }
 section.fileupload {
     width: 75%;
@@ -119,15 +117,13 @@ form input[type=file] {
     display: none;
 }
 form label {
-    background-color: var(--backdrop);
+    background-color: var(--background);
     width: 100%;
     height: 70%;
     border-radius: 20px;
-    box-shadow: 2px 2px 8px var(--background);
     text-align: center;
     font-size: 5em;
     align-content: center;
-    border: 2px solid var(--backdrop);
 }
 form label i {
     filter: drop-shadow(0 0 8px var(--secondary));
@@ -140,12 +136,10 @@ form label i:hover {
 form input[type=submit] {
     height: 20%;
     width: 40%;
-    background: var(--backdrop);
-    box-shadow: 2px 2px 8px var(--background);
-    border: 2px solid var(--backdrop);
+    background: var(--background);
     color: var(--secondary);
     font-size: 1.5em;
-    border-radius: 40px;
+    border-radius: 10px;
 }
 main > p {
     width: 80%;
