@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="https://api.ssps.cajthaml.eu/file/64d9f18f79dad891e8a07c73">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <title>Miauuuuu</title>
+</head>
+<body>
+    <img src="Maxwell.png" alt="Maxwell" class="maxwell" id="max" draggable="false">
+
+    <script>
+        let body = document.body;
+        let max = document.getElementById("max")
+        const counter = document.createElement("h1")
+
+        let music = new Audio("/oiia-short.mp3")
+
+        function Counter() {
+            let elements = document.getElementsByClassName("maxwell");
+            let lenght = elements.length;
+            
+            counter.innerText = lenght;
+            body.appendChild(counter);
+        }
+
+        //Main Cat
+        max.style.width = "30%"
+        max.style.left = "35%";
+        max.style.top = "25%";
+        max.style.zIndex = "1000";
+
+        //Click Max
+        max.addEventListener("click", function(){
+            const maxdup = document.createElement('img');
+
+            xpos = Math.floor(Math.random() * screen.width) - 150
+            ypos = Math.floor(Math.random() * screen.height) - 150
+
+            maxdup.src = "Maxwell.png"
+            maxdup.className = "maxwell"
+            maxdup.style.left = `${xpos}px`;
+            maxdup.style.top = `${ypos}px`
+            maxdup.draggable = false;
+            maxdup.style.opacity = .6;
+
+            music.play();
+
+            body.appendChild(maxdup);
+        });
+
+        setInterval(Counter,100)
+    </script>
+</body>
+</html>
