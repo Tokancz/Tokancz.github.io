@@ -75,7 +75,7 @@ nav > div.navright {
     gap: 15px;
 }
 main {
-    width: 60%;
+    width: 50%;
     height: 1100px;
     display: flex;
     flex-direction: column;

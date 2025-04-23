@@ -50,7 +50,7 @@
             <p>,And Todays <i id="red">Kitten of The Day</i> is ....</p>
             <section class="KoTD">
                 <div class="Kitten">
-                    <img src="/Images/Cat.jpg" alt="Kitten of The Day" draggable="false" class="kitty">
+                    <img src="/Images/Cat.jpg" alt="Kitten of The Day" draggable="false" class="kitty" id="kitty">
                 </div>
                 <section class="stats">
                     <p>Name : <span id="name">Unknown</span></p>
@@ -71,8 +71,6 @@
             <a href="https://www.instagram.com/tunakos_/"><i class="fa-brands fa-instagram"></i> tunakos_</a>
         </section>
     </footer>
-
-    <script type="module" src="script.js"></script> <!--Heeeelp-->
     <script>
         setInterval(kittychange,5000);
 
@@ -135,6 +133,8 @@
 
             console.log("change");
         }
+
+        kittychange();
     </script>
 </body>
 </html>

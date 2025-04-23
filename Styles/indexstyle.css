@@ -106,12 +106,12 @@ section.split {
     align-items: center;
     gap: 5%;
     background-color: var(--backdrop);
-    padding: 20px;
+    padding: 50px 30px;
     border-radius: 15px;
     transition: .3s;
 }
 section.split:hover {
-    transform: scale(1.15);
+    transform: scale(1.05);
 }
 .split img {
     border-radius: 20px;
@@ -147,7 +147,6 @@ section.KoTD {
     width: 70%;
     height: 750px;
     display: flex;
-    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     gap: 20px;
@@ -219,7 +218,7 @@ section.contact {
     nav { gap: 10%; }
     nav > div.navcenter { width: 60%; }
     section.split:hover {transform: scale(1.05);}
-    section.KoTD { width: 90%; }
+    section.KoTD { width: 90%; flex-direction: column; }
     section.contact { width: 50%; }
 }
 @media (width <= 800px) {
