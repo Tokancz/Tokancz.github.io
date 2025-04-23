@@ -10,9 +10,98 @@
     <link rel="icon" type="image/png" href="/Images/favicon.ico">
     <title>Kitty Clicker</title>
 
+</head>
+<body>
+    <nav>
+        <a href="index.html">KoTD</a>
+        <div class="navcenter">
+            <section>
+                <a href="index.html" class="icon"><i class="fa-solid fa-house"></i></a>
+                <a href="index.html" class="text">Home</a>
+            </section>
+            <section>
+                <a href="clickerindex.html" class="icon" id="current"><i class="fa-solid fa-computer-mouse"></i></a>
+                <a href="clickerindex.html" class="text" id="current">Clicker</a>
+            </section>
+            <section>
+                <a href="uploadindex.html" class="icon"><i class="fa-solid fa-upload"></i></a>
+                <a href="uploadindex.html" class="text">Upload</a>
+            </section>
+            <section>
+                <a href="aboutmeindex.html" class="icon"><i class="fa-solid fa-address-card"></i></a>
+                <a href="aboutmeindex.html" class="text">About me</a>
+            </section>
+            <section>
+                <a href="galleryindex.html" class="icon"><i class="fa-solid fa-image"></i></a>
+                <a href="galleryindex.html" class="text">Gallery</a>
+            </section>
+        </div>
+        <a href=""><i class="fa-solid fa-user"></i></a>
+    </nav>
+    <main>
+        <h2>Kitty Clicker</h2>
+        <section class="clicker">
+            <section class="group">
+                <div class="button" id="kitty">
+                    <img id="kitty" src="https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t1080x1080.jpg" alt="kitty" draggable="false">
+                </div>
+                <section class="upgrades"> <!--Dodelat funkcionalitu-->
+                    <section onclick='upgrade("tonque")'>
+                        <p>Tongue lvl: <span id="tonque">0</span></p>
+                        <p class="cost">Cost: <span id="Ctonque">0</span></p>
+                    </section>             
+                    <section onclick='upgrade("silly")'>
+                        <p>Silly lvl: <span id="silly">0</span></p>
+                        <p class="cost">Cost: <span id="Csilly">0</span></p>
+                    </section>
+                    <section onclick='upgrade("braincells")'>
+                        <p>Brain Cells: <span id="braincells">0</span></p>
+                        <p class="cost">Cost: <span id="Cbraincells">0</span></p>
+                    </section>
+                    <section></section>
+                    <section></section>
+                    <section></section>
+                </section>
+            </section>
+            <p class="meows">Meows: <span id="counter">0</span></p>
+            <!--Mute/unmute-->
+            <input type="checkbox" name="mute" id="mute">
+            <label for="mute" id="loud" ><i class="fa-solid fa-volume-high"></i></label>
+            <label for="mute" id="muted" ><i class="fa-solid fa-volume-xmark"></i></label>
+
+        </section>
+        <h4>Cat quotes: </h4>
+        <section class="container">
+            <section>
+                <p>“Time spent with cats is <i id="red">never</i> wasted.” </p>
+                <p>- Sigmund Freud</p>
+            </section>
+            <section>
+                <p>“Cats <i id="red">rule</i> the world.”</p>
+                <p>- Jim Davis</p>
+            </section>
+            <section>
+                <p>“Like all pure creatures, cats are <i id="red">practical</i>.”</p>
+                <p>- William S. Burroughs</p>
+            </section>
+            <section>
+                <p>“Cats will <i id="red">outsmart</i> dogs every time.”</p>
+                <p>- John Grogan</p>
+            </section>
+        </section>
+    </main>
+    <hr>
+    <footer>
+        <p id="red">Contact Me:</p>
+        <section class="contact">
+            <p><i class="fa-regular fa-envelope"></i> matyasklubal@gmail.com</p>
+            <a href="https://www.instagram.com/tunakos_/"><i class="fa-brands fa-instagram"></i> tunakos_</a>
+        </section>
+    </footer>
+
     <script>
         let meows = getCookie("meow");//Inicialization of variables
-        let muted = false; //console fix, ver to let, soubory
+        let muted = false;
         
         let meow1 = new Audio('/Audio/Meow.mp3');
         let meow2 = new Audio('/Audio/Meow2.mp3');
@@ -23,6 +112,14 @@
         let meow7 = new Audio('/Audio/Meow7.mp3');
 
         setInterval(AFKCalc,1000);
+
+        const kitty = document.getElementById("kitty");
+        kitty.addEventListener('click', Meow);
+        const mutebtn1 = document.getElementById("loud");
+        mutebtn1.addEventListener('click', mute);
+        const mutebtn2 = document.getElementById("muted");
+        mutebtn2.addEventListener('click', mute);
+
 
         function Load() {//Called on refresh
             //-------------if exists---------------//
@@ -132,94 +229,6 @@
             return "";
         }
     </script>
-</head>
-<body onload="Load()">
-    <nav>
-        <a href="index.html">KoTD</a>
-        <div class="navcenter">
-            <section>
-                <a href="index.html" class="icon"><i class="fa-solid fa-house"></i></a>
-                <a href="index.html" class="text">Home</a>
-            </section>
-            <section>
-                <a href="clickerindex.html" class="icon" id="current"><i class="fa-solid fa-computer-mouse"></i></a>
-                <a href="clickerindex.html" class="text" id="current">Clicker</a>
-            </section>
-            <section>
-                <a href="uploadindex.html" class="icon"><i class="fa-solid fa-upload"></i></a>
-                <a href="uploadindex.html" class="text">Upload</a>
-            </section>
-            <section>
-                <a href="aboutmeindex.html" class="icon"><i class="fa-solid fa-address-card"></i></a>
-                <a href="aboutmeindex.html" class="text">About me</a>
-            </section>
-            <section>
-                <a href="galleryindex.html" class="icon"><i class="fa-solid fa-image"></i></a>
-                <a href="galleryindex.html" class="text">Gallery</a>
-            </section>
-        </div>
-        <a href=""><i class="fa-solid fa-user"></i></a>
-    </nav>
-    <main>
-        <h2>Kitty Clicker</h2>
-        <section class="clicker">
-            <section class="group">
-                <div class="button" onclick="Meow()">
-                    <img id="kitty" src="https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t1080x1080.jpg" alt="kitty" draggable="false">
-                </div>
-                <section class="upgrades"> <!--Dodelat funkcionalitu-->
-                    <section onclick='upgrade("tonque")'>
-                        <p>Tongue lvl: <span id="tonque">0</span></p>
-                        <p class="cost">Cost: <span id="Ctonque">0</span></p>
-                    </section>             
-                    <section onclick='upgrade("silly")'>
-                        <p>Silly lvl: <span id="silly">0</span></p>
-                        <p class="cost">Cost: <span id="Csilly">0</span></p>
-                    </section>
-                    <section onclick='upgrade("braincells")'>
-                        <p>Brain Cells: <span id="braincells">0</span></p>
-                        <p class="cost">Cost: <span id="Cbraincells">0</span></p>
-                    </section>
-                    <section></section>
-                    <section></section>
-                    <section></section>
-                </section>
-            </section>
-            <p class="meows">Meows: <span id="counter">0</span></p>
-            <!--Mute/unmute-->
-            <input type="checkbox" name="mute" id="mute">
-            <label for="mute" id="loud" onclick="mute()"><i class="fa-solid fa-volume-high"></i></label>
-            <label for="mute" id="muted" onclick="mute()"><i class="fa-solid fa-volume-xmark"></i></label>
-
-        </section>
-        <h4>Cat quotes: </h4>
-        <section class="container">
-            <section>
-                <p>“Time spent with cats is <i id="red">never</i> wasted.” </p>
-                <p>- Sigmund Freud</p>
-            </section>
-            <section>
-                <p>“Cats <i id="red">rule</i> the world.”</p>
-                <p>- Jim Davis</p>
-            </section>
-            <section>
-                <p>“Like all pure creatures, cats are <i id="red">practical</i>.”</p>
-                <p>- William S. Burroughs</p>
-            </section>
-            <section>
-                <p>“Cats will <i id="red">outsmart</i> dogs every time.”</p>
-                <p>- John Grogan</p>
-            </section>
-        </section>
-    </main>
-    <hr>
-    <footer>
-        <p id="red">Contact Me:</p>
-        <section class="contact">
-            <p><i class="fa-regular fa-envelope"></i> matyasklubal@gmail.com</p>
-            <a href="https://www.instagram.com/tunakos_/"><i class="fa-brands fa-instagram"></i> tunakos_</a>
-        </section>
-    </footer>
 </body>
 </html>
 

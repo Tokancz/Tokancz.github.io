@@ -9,9 +9,79 @@
     <link rel="stylesheet" href="/Styles/indexstyle.css">
     <link rel="icon" type="image/png" href="/Images/favicon.ico">
     <title>Kitten of The Day</title>
+</head>
+<body>
+    <nav>
+        <a href="index.html">KoTD</a>
+        <div class="navcenter">
+            <section>
+                <a href="index.html" class="icon" id="current"><i class="fa-solid fa-house"></i></a>
+                <a href="index.html" class="text" id="current">Home</a>
+            </section>
+            <section>
+                <a href="clickerindex.html" class="icon"><i class="fa-solid fa-computer-mouse"></i></a>
+                <a href="clickerindex.html" class="text">Clicker</a>
+            </section>
+            <section>
+                <a href="uploadindex.html" class="icon"><i class="fa-solid fa-upload"></i></a>
+                <a href="uploadindex.html" class="text">Upload</a>
+            </section>
+            <section>
+                <a href="aboutmeindex.html" class="icon"><i class="fa-solid fa-address-card"></i></a>
+                <a href="aboutmeindex.html" class="text">About me</a>
+            </section>
+            <section>
+                <a href="galleryindex.html" class="icon"><i class="fa-solid fa-image"></i></a>
+                <a href="galleryindex.html" class="text">Gallery</a>
+            </section>
+        </div>
+        <a href=""><i class="fa-solid fa-user"></i></a>
+    </nav>
+    <main>
+        <section class="Yap">
+            <h1><i>Kitten of The Day</i></h1>
+            <section class="split">
+                <h2>Welcome to <i id="red">Kitten of the Day!</i> Your daily dose of feline cuteness awaits. Each day, discover a new adorable cat to brighten your mood and make you smile</h2>
+                <img src="/Images/Cat.jpg" alt="Kitten" width="300px" draggable="false" class="kitty">
+            </section>
+        </section>
+        <p class="meow">Meowww</p>
+        <section class="group">
+            <p>,And Todays <i id="red">Kitten of The Day</i> is ....</p>
+            <section class="KoTD">
+                <div class="Kitten">
+                    <img src="/Images/Cat.jpg" alt="Kitten of The Day" draggable="false" class="kitty">
+                </div>
+                <section class="stats">
+                    <p>Name : <span id="name">Unknown</span></p>
+                    <p>Age : <span id="age">Unknown</span></p>
+                    <p>Breed : <span id="breed">Unknown</span></p>
+                    <p>Special : <span id="special">Unknown</span></p>
+                </section>
+            </section>
+            <p>if This isnt <i id="red">Enough</i> ...</p>
+            <iframe src="https://www.youtube.com/embed/ptfWZs7ZdXE" frameborder="0"></iframe>
+        </section>
+    </main>
+    <hr>
+    <footer>
+        <p id="red">Contact Me:</p>
+        <section class="contact">
+            <p><i class="fa-regular fa-envelope"></i> matyasklubal@gmail.com</p>
+            <a href="https://www.instagram.com/tunakos_/"><i class="fa-brands fa-instagram"></i> tunakos_</a>
+        </section>
+    </footer>
 
+    <script type="module" src="script.js"></script> <!--Heeeelp-->
     <script>
-        setInterval(kittychange,5000);  
+        setInterval(kittychange,5000);
+
+        const kittens = document.getElementsByClassName("kitty");
+    
+        for (let i = 0 ; i < kittens.length; i++) { //onclick replacement
+            const kitten = kittens[i];
+            kitten.addEventListener('click', Meow);
+        }
 
         function Meow()
         { 
@@ -52,7 +122,6 @@
         const cat10 = new Kitten("https://imgix.ranker.com/user_node_img/50053/1001053266/original/this-cat-looks-like-a-cartoon-of-a-wet-cat-came-to-life-freestyle-list-photo-u1?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&w=355","Billy","Very old","Wet","Shampoo")
         const cat11 = new Kitten("https://i.redd.it/92rblqtdiql21.jpg","Crocky","1","Silly","Shoe")
 
-        
         const KittenArray = [cat1,cat2,cat3,cat4,cat5,cat6,cat7,cat8,cat9,cat10,cat11]
 
         function kittychange() {
@@ -67,68 +136,6 @@
             console.log("change");
         }
     </script>
-</head>
-<body onload="kittychange()">
-    <nav>
-        <a href="index.html">KoTD</a>
-        <div class="navcenter">
-            <section>
-                <a href="index.html" class="icon" id="current"><i class="fa-solid fa-house"></i></a>
-                <a href="index.html" class="text" id="current">Home</a>
-            </section>
-            <section>
-                <a href="clickerindex.html" class="icon"><i class="fa-solid fa-computer-mouse"></i></a>
-                <a href="clickerindex.html" class="text">Clicker</a>
-            </section>
-            <section>
-                <a href="uploadindex.html" class="icon"><i class="fa-solid fa-upload"></i></a>
-                <a href="uploadindex.html" class="text">Upload</a>
-            </section>
-            <section>
-                <a href="aboutmeindex.html" class="icon"><i class="fa-solid fa-address-card"></i></a>
-                <a href="aboutmeindex.html" class="text">About me</a>
-            </section>
-            <section>
-                <a href="galleryindex.html" class="icon"><i class="fa-solid fa-image"></i></a>
-                <a href="galleryindex.html" class="text">Gallery</a>
-            </section>
-        </div>
-        <a href=""><i class="fa-solid fa-user"></i></a>
-    </nav>
-    <main>
-        <section class="Yap">
-            <h1><i>Kitten of The Day</i></h1>
-            <section class="split">
-                <h2>Welcome to <i id="red">Kitten of the Day!</i> Your daily dose of feline cuteness awaits. Each day, discover a new adorable cat to brighten your mood and make you smile</h2>
-                <img src="/Images/Cat.jpg" alt="Kitten" width="300px" onclick="Meow()" draggable="false">
-            </section>
-        </section>
-        <p class="meow">Meowww</p>
-        <section class="group">
-            <p>,And Todays <i id="red">Kitten of The Day</i> is ....</p>
-            <section class="KoTD">
-                <div class="Kitten">
-                    <img src="/Images/Cat.jpg" alt="Kitten of The Day" id="kitty" onclick="Meow()" draggable="false">
-                </div>
-                <section class="stats">
-                    <p>Name : <span id="name">Unknown</span></p>
-                    <p>Age : <span id="age">Unknown</span></p>
-                    <p>Breed : <span id="breed">Unknown</span></p>
-                    <p>Special : <span id="special">Unknown</span></p>
-                </section>
-            </section>
-            <p>if This isnt <i id="red">Enough</i> ...</p>
-            <iframe src="https://www.youtube.com/embed/ptfWZs7ZdXE" frameborder="0"></iframe>
-        </section>
-    </main>
-    <hr>
-    <footer>
-        <p id="red">Contact Me:</p>
-        <section class="contact">
-            <p><i class="fa-regular fa-envelope"></i> matyasklubal@gmail.com</p>
-            <a href="https://www.instagram.com/tunakos_/"><i class="fa-brands fa-instagram"></i> tunakos_</a>
-        </section>
-    </footer>
 </body>
 </html>
 
