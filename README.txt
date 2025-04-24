@@ -19,3 +19,7 @@ ps: skoda ze jsme databaze este ve WBA nedelali, bylo by to pro me jednodussi
 cajty said:
 udalost mousedown prevent default
 hambungr menu
+upload add beta
+
+fix group in index
+odstranil jsem height 1xxxpx - poladit vzhled
