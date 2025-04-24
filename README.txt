@@ -12,5 +12,6 @@ profily + účty
 upload sprovoznit
 admin stranku
 zabránit zvětšování na mobilu
+vic textu
 
 ps: skoda ze jsme databaze este ve WBA nedelali, bylo by to pro me jednodussi
