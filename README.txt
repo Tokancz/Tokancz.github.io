@@ -15,3 +15,7 @@ zabránit zvětšování na mobilu
 vic textu
 
 ps: skoda ze jsme databaze este ve WBA nedelali, bylo by to pro me jednodussi
+
+cajty said:
+udalost mousedown prevent default
+hambungr menu
