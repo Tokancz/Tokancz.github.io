@@ -271,7 +271,7 @@ section.contact {
     div.navcenter {display: none;}
     i#icon {display: block;}
     main {padding-top: 10px; gap: 30px; width: 100%;}
-    label {top: 30px;}
+    label {top: 45%;left: 88%;}
     section.container {grid-template-columns: auto; gap: 10px;}
     footer {
         height: 100px;
