@@ -59,8 +59,6 @@
     </footer>
 
     <script>
-        setInterval(kittychange,5000);
-
         const kittens = document.getElementsByClassName("kitty");
     
         for (let i = 0 ; i < kittens.length; i++) { //onclick replacement
@@ -85,44 +83,35 @@
             Raudio.play();
         }
 
-        class Kitten {
-            constructor(src, name, age, breed, special) {
-                this.src = src
-                this.name = name;
-                this.age = age;
-                this.breed = breed;
-                this.special = special;
-            }
+        // The container where kittens will be shown
+        const container = document.getElementById("kittensContainer");
+        const KoTD = document.getElementById("kitty");
+        const kittenlist = [];
+      
+        // Load JSON and display kittens
+        fetch("kittens.json") // or 'data/kittens.json' if stored there
+          .then(res => res.json())
+          .then(kittens => {
+            kittens.forEach(kitten => {
+                kittenlist.push(kitten);
+            });
+            console.log("Kittens loaded:", kittenlist);
+            kittychange(); // <- Now run it
+            setInterval(kittychange, 5000); // <- Start the interval
+          })
+          .catch(error => {
+            console.error("Failed to load kittens.json:", error);
+        });
+
+        function kittychange(){
+            let rkitten = kittenlist[Math.floor(Math.random() * (kittenlist.length - 1))];
+            document.getElementById("kitty").src =  `${rkitten.image}`;
+            document.getElementById("name").innerText =  `${rkitten.name}`;
+            document.getElementById("age").innerText =  `${rkitten.age}`;    
+            document.getElementById("breed").innerText =  `${rkitten.breed}`;
+            document.getElementById("special").innerText =  `${rkitten.special}`;
         }
-
-        const cat1 = new Kitten("https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t1080x1080.jpg","Mittens","2,5 years","Orange","Big Tongue")
-        const cat2 = new Kitten("https://assets3.thrillist.com/v1/image/3005222/792x918/scale;webp=auto;jpeg_quality=60.jpg","Car","6 years","Black","0 Brain cells")
-        const cat3 = new Kitten("https://pbs.twimg.com/profile_images/1828434705139585024/UHcn3Wbg_400x400.jpg","Cuh","3 months","2 color","Cute")
-        const cat4 = new Kitten("https://p16-va.lemon8cdn.com/tos-maliva-v-ac5634-us/ogFjQkAMIE8xaHAFeyVW7DEIeQfZknAfAPsFD2~tplv-tej9nj120t-origin.webp","Kureci Maso","16 years","Orange","Confused")
-        const cat5 = new Kitten("https://wallpapers.com/images/hd/silly-cat-pictures-1600-x-1289-b0qw5gcu2akaheo8.jpg","Megatron","5 years","Demon Black","Dumb")
-        const cat6 = new Kitten("https://i.pinimg.com/originals/78/98/7e/78987e6518bcb738155610dd8c6ac3ea.png","Adolf Kitler","86 years","War veteran","Panzer Faust 60")
-        const cat7 = new Kitten("https://preview.redd.it/v51i6277f0u71.png?width=1600&format=png&auto=webp&s=12fd75ba8291a0ba29351f15a6466ff0d409e927","Veigar Cat","1500 years","Yordle","Darkness")
-        const cat8 = new Kitten("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq6JKiYOPOxA2418fTh33r2mNa6mk3DmhecQ&s","Uhh Actually","15 years","Smart Kid","annoying")
-        const cat9 = new Kitten("https://www.opleague.pro/styles/media/team/3100/Logo_background.png","Swag Cat","18 years","Glass Cat","Alpha Aura")
-        const cat10 = new Kitten("https://imgix.ranker.com/user_node_img/50053/1001053266/original/this-cat-looks-like-a-cartoon-of-a-wet-cat-came-to-life-freestyle-list-photo-u1?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&w=355","Billy","Very old","Wet","Shampoo")
-        const cat11 = new Kitten("https://i.redd.it/92rblqtdiql21.jpg","Crocky","1","Silly","Shoe")
-
-        const KittenArray = [cat1,cat2,cat3,cat4,cat5,cat6,cat7,cat8,cat9,cat10,cat11]
-
-        function kittychange() {
-            catsrcIndex = Math.floor(Math.random() * KittenArray.length);
-            
-            document.getElementById("kitty").src=KittenArray[catsrcIndex].src;
-            document.getElementById("name").textContent=KittenArray[catsrcIndex].name;
-            document.getElementById("age").textContent=KittenArray[catsrcIndex].age;
-            document.getElementById("breed").textContent=KittenArray[catsrcIndex].breed;
-            document.getElementById("special").textContent=KittenArray[catsrcIndex].special;
-
-            console.log("change");
-        }
-
-        kittychange();
-    </script>
+    </script>      
     <script src="TabScript.js"></script>
 </body>
 </html>
