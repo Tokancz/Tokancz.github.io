@@ -13,29 +13,17 @@
 <body>
     <nav>
         <a href="index.html">KoTD</a>
-        <div class="navcenter">
-            <section>
-                <a href="index.html" class="icon" id="current"><i class="fa-solid fa-house"></i></a>
-                <a href="index.html" class="text" id="current">Home</a>
-            </section>
-            <section>
-                <a href="clickerindex.html" class="icon"><i class="fa-solid fa-computer-mouse"></i></a>
-                <a href="clickerindex.html" class="text">Clicker</a>
-            </section>
-            <section>
-                <a href="uploadindex.html" class="icon"><i class="fa-solid fa-upload"></i></a>
-                <a href="uploadindex.html" class="text">Upload</a>
-            </section>
-            <section>
-                <a href="aboutmeindex.html" class="icon"><i class="fa-solid fa-address-card"></i></a>
-                <a href="aboutmeindex.html" class="text">About me</a>
-            </section>
-            <section>
-                <a href="galleryindex.html" class="icon"><i class="fa-solid fa-image"></i></a>
-                <a href="galleryindex.html" class="text">Gallery</a>
-            </section>
+        <div class="navcenter" id="menu">
+                <a href="index.html" id="current"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="clickerindex.html"><i class="fa-solid fa-computer-mouse"></i> Clicker</a>
+                <a href="uploadindex.html"><i class="fa-solid fa-upload"></i> Upload</a>
+                <a href="aboutmeindex.html"><i class="fa-solid fa-address-card"></i> About me</a>
+                <a href="galleryindex.html"><i class="fa-solid fa-image"></i> Gallery</a>
         </div>
-        <a href=""><i class="fa-solid fa-user"></i></a>
+        <div class="icons">
+            <i class="fa-solid fa-bars" id="icon"></i>
+            <a href=""><i class="fa-solid fa-user"></i></a>
+        </div>
     </nav>
     <main>
         <section class="Yap">
@@ -46,22 +34,20 @@
             </section>
         </section>
         <p class="meow">Meowww</p>
-        <section class="group">
-            <p>,And Todays <i id="red">Kitten of The Day</i> is ....</p>
-            <section class="KoTD">
-                <div class="Kitten">
-                    <img src="/Images/Cat.jpg" alt="Kitten of The Day" draggable="false" class="kitty" id="kitty">
-                </div>
-                <section class="stats">
-                    <p>Name : <span id="name">Unknown</span></p>
-                    <p>Age : <span id="age">Unknown</span></p>
-                    <p>Breed : <span id="breed">Unknown</span></p>
-                    <p>Special : <span id="special">Unknown</span></p>
-                </section>
+        <p>,And Todays <i id="red">Kitten of The Day</i> is ....</p>
+        <section class="KoTD">
+            <div class="Kitten">
+                <img src="/Images/Cat.jpg" alt="Kitten of The Day" draggable="false" class="kitty" id="kitty">
+            </div>
+            <section class="stats">
+                <p>Name : <span id="name">Unknown</span></p>
+                <p>Age : <span id="age">Unknown</span></p>
+                <p>Breed : <span id="breed">Unknown</span></p>
+                <p>Special : <span id="special">Unknown</span></p>
             </section>
-            <p>if This isnt <i id="red">Enough</i> ...</p>
-            <iframe src="https://www.youtube.com/embed/ptfWZs7ZdXE" frameborder="0"></iframe>
         </section>
+        <p>if This isnt <i id="red">Enough</i> ...</p>
+        <iframe src="https://www.youtube.com/embed/ptfWZs7ZdXE" frameborder="0"></iframe>
     </main>
     <hr>
     <footer>
@@ -137,7 +123,7 @@
 
         kittychange();
     </script>
-    <script type="module" src="script.js"></script>
+    <script src="TabScript.js"></script>
 </body>
 </html>
 

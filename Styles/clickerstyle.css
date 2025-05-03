@@ -28,12 +28,12 @@ body {
 }
 i { font-style: italic; }
 nav {
-    width: 100%;
+    width: 95%;
     height: 60px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    gap: 20%;
+    margin: 10px;
 }
 nav a {
     text-decoration: none;
@@ -49,31 +49,45 @@ nav a:hover {
 label input {
     display: none;
 }
-nav > div.navcenter {
-    width: 40%;
+div.navcenter {
     display: flex;
     justify-content: space-evenly;
     background-color: var(--backdrop);
     border-radius: 10px;
-    padding: 15px 0;
+    padding: 15px;
+    gap: 40px;
     box-shadow: 2px 2px 4px #000000;
 }
-div.navcenter > section {
-    display: flex;
-    gap: 15px;
-    transition: 1s;
-}
-div.navcenter a { font-size: 1.2em;}
-div.navcenter a#current {
+div.navcenter a,i#icon { font-size: 1.2em;}
+a#current {
     color: var(--primary);
     filter: drop-shadow(0 0 3px var(--glow));
 }
-a.text { display: inline; transition: 1s;}
-a.icon { display: none; transition: 1s;}
-nav > div.navright {
+div.burgrmenu {
+    position: fixed;
+    right: 10px;
+    top: 70px;
     display: flex;
-    gap: 15px;
-} 
+    justify-content: space-evenly;
+    flex-direction: column;
+    z-index: 100;
+    border-radius: 5px;
+    padding: 20px;
+    backdrop-filter: brightness(.5);
+    background-color: var(--backdrop);
+    gap: 40px;
+    box-shadow: 2px 2px 4px #000000;
+}
+div.burgrmenu a {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+}
+div.icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
 main {
     width: 80%;
     display: flex;
@@ -189,6 +203,7 @@ section.container {
     height: 300px;
     display: grid;
     grid-template-columns: auto auto;
+    padding-bottom: 50px;
     gap: 20px;
 }
 section.container > section {
@@ -243,47 +258,20 @@ section.contact {
 }
 
 /*Responzivita*/
-@media (width <= 1140px) {
-    nav { gap: 10%; }
-    nav > div.navcenter {width: 60%;}
-    main { width: 90%; }
-    section.clicker { width: 100%; }
-    section.contact { width: 50%;}
+@media (width <= 1024px) {
+    div.navcenter i {display: none;}
 }
-@media (width <= 800px) {
-    body { height: 1800px;}
-    nav { gap: 0%; }
-    nav a:hover { transform: scale(1.1); }
-    nav > div.navcenter { width: 70%; }
-    a.text { display: none; }
-    a.icon { display: inline; }
-    div.navcenter > section:hover > a.text {display: inline; transition: 1s;}
-    main { width: 98%; height: 1650px;}
-    section.clicker { border-radius: 30px; height: 900px;}
-    section.group { flex-direction: column; height: 85%;}
-    div.button { width: 100%; height: 65%;}
-    div.button > img { height: 80%; width: auto;}
-    section.upgrades { width: 100%; height: 35%; }
-    label {bottom: 40px;}
-    section.contact { width: 60%;}
+@media (width <= 425px) {
+    body {font-size: .8em;}
+    nav {width: 90%;}
+    div.navcenter {display: none;}
+    
+    footer {
+        height: 100px;
+        justify-content: space-around; 
+        flex-direction: column;
+        text-align: center;
+    }
 }
-@media (width <= 625px) {
-    body {font-size: .7em; height: 1700px; }
-    main { height: 1550px;}
-    nav {justify-content: space-around; }
-    nav > div.navcenter { width: 300px;}
-    nav > div.navright { gap: 5px; }
-    h2 {font-size: 4em;}
-    section.clicker { height: 800px;}
-    section.container { width: 100%;}
-}
-@media (width <= 430px) {
-    h2 { font-size: 3em; }
-    section.clicker {height: 650px;}
-    div.button { height: 55% ;}
-    section.upgrades { height: 45%; }
-    section.container { grid-template-columns: auto; }
-    label {top: 30px; left: 30px;}
-    footer { flex-direction: column; }
-    section.contact { width: 100%; text-align: center;}
+@media (width <= 320px) {
 }

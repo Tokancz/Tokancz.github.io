@@ -13,8 +13,8 @@ upload sprovoznit
 admin stranku
 zabránit zvětšování na mobilu
 vic textu
-
-ps: skoda ze jsme databaze este ve WBA nedelali, bylo by to pro me jednodussi
+script rework, databaze, clicker, gallery js, transitions
+more scripts
 
 cajty said:
 udalost mousedown prevent default
@@ -22,4 +22,3 @@ hambungr menu
 upload add beta
 
 fix group in index
-odstranil jsem height 1xxxpx - poladit vzhled

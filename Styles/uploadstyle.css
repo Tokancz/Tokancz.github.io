@@ -27,12 +27,12 @@ body {
 }
 i { font-style: italic; }
 nav {
-    width: 100%;
+    width: 95%;
     height: 60px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    gap: 20%;
+    margin: 10px;
 }
 nav a {
     text-decoration: none;
@@ -48,30 +48,44 @@ nav a:hover {
 label input {
     display: none;
 }
-nav > div.navcenter {
-    width: 40%;
+div.navcenter {
     display: flex;
     justify-content: space-evenly;
     background-color: var(--backdrop);
     border-radius: 10px;
-    padding: 15px 0;
+    padding: 15px;
+    gap: 40px;
     box-shadow: 2px 2px 4px #000000;
 }
-div.navcenter > section {
-    display: flex;
-    gap: 15px;
-    transition: 1s;
-}
-div.navcenter a { font-size: 1.2em;}
-div.navcenter a#current {
+div.navcenter a,i#icon { font-size: 1.2em;}
+a#current {
     color: var(--primary);
     filter: drop-shadow(0 0 3px var(--glow));
 }
-a.text { display: inline; transition: 1s;}
-a.icon { display: none; transition: 1s;}
-nav > div.navright {
+div.burgrmenu {
+    position: fixed;
+    right: 10px;
+    top: 70px;
     display: flex;
-    gap: 15px;
+    justify-content: space-evenly;
+    flex-direction: column;
+    z-index: 100;
+    border-radius: 5px;
+    padding: 20px;
+    backdrop-filter: brightness(.5);
+    background-color: var(--backdrop);
+    gap: 40px;
+    box-shadow: 2px 2px 4px #000000;
+}
+div.burgrmenu a {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+}
+div.icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
 main {
     width: 50%;
@@ -79,7 +93,7 @@ main {
     flex-direction: column;
     align-items: center;
     filter: drop-shadow(0 0 100px var(--background));
-    gap: 60px;
+    gap: 50px;
 }
 h2 {
     font-size: 2.5em;
@@ -147,6 +161,7 @@ main > p.details {
     width: 70%;
     background-color: var(--backdrop);
     padding: 20px;
+    margin-bottom: 50px;
     border-radius: 10px;
 }
 
@@ -182,34 +197,20 @@ section.contact {
 }
 
 /*Responzivita*/
-@media (width <= 1140px) {
-    main { width: 80%; }
-    nav { gap: 10%; }
-    nav > div.navcenter { width: 60%; }
-    section.contact { width: 50%; }
+@media (width <= 1024px) {
+    div.navcenter i {display: none;}
 }
-@media (width <= 800px) {
-    main { width: 100%;}
-    nav { gap: 3%; }
-    nav > div.navcenter { width: 70%; }
-    a.text { display: none; }
-    a.icon { display: inline; }
-    div.navcenter > section:hover > a.text {display: inline; transition: 1s;}
-    nav a:hover { transform: scale(1.1); }
-    section.contact { width: 60%; }
+@media (width <= 425px) {
+    body {font-size: .8em;}
+    nav {width: 90%;}
+    div.navcenter {display: none;}
+    
+    footer {
+        height: 100px;
+        justify-content: space-around; 
+        flex-direction: column;
+        text-align: center;
+    }
 }
-@media (width <= 625px) {
-    body { height: 1000px; font-size: .71em;}
-    nav { gap: 2%; justify-content: space-around; }
-    nav > div.navcenter { width: 300px;}
-    nav > div.navright { gap: 5px; }
-    section.fileupload { height: 350px;}
-}
-@media (width <= 430px) {
-    body { height: 900px;}
-    main {gap: 20px;}
-    section.fileupload { height: 300px;}
-    form input[type=submit] {width: 60%;}
-    footer { flex-direction: column; }
-    section.contact { width: 100%; text-align: center;}
+@media (width <= 320px) {
 }
