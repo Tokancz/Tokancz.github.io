@@ -13,12 +13,10 @@ upload sprovoznit
 admin stranku
 zabránit zvětšování na mobilu
 vic textu
-script rework, databaze, clicker, gallery js, transitions
+transitions burgir menu
+script rework, databaze, clicker, gallery js
 more scripts
 
 cajty said:
 udalost mousedown prevent default
-hambungr menu
 upload add beta
-
-fix group in index
