@@ -87,8 +87,9 @@ div.icons {
     gap: 20px;
     align-items: center;
 }
+i#icon {display: none;}
 main {
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,7 +107,6 @@ main > h2 , main > p {
 }
 main > section.split {
     width: 80%;
-    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -182,7 +182,6 @@ footer p, footer a {
 }
 p#red, i#red { color: var(--primary); filter: drop-shadow(0 0 3px var(--glow))}
 section.contact {
-    width: 35%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -191,11 +190,17 @@ section.contact {
 /*Responzivita*/
 @media (width <= 1024px) {
     div.navcenter i {display: none;}
+    main {width: 80%;}
 }
 @media (width <= 425px) {
     body {font-size: .8em;}
     nav {width: 90%;}
     div.navcenter {display: none;}
+    i#icon {display: block;}
+    main {margin: 0 0 30px 0;}
+    main > section.split {width: 100%; flex-direction: column;}
+    section.split > section {width: 80%;}
+
     
     footer {
         height: 100px;

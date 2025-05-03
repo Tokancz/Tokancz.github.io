@@ -87,6 +87,7 @@ div.icons {
     gap: 20px;
     align-items: center;
 }
+i#icon {display: none;}
 main {
     width: 100%;
     display: flex;
@@ -180,7 +181,7 @@ iframe {
     border-radius: 20px;
     margin-bottom: 60px;
     width: 500px;
-    height: auto;
+    height: 300px;
 }
 hr {
     width: 100%;
@@ -222,12 +223,13 @@ section.contact {
     body {font-size: .8em;}
     nav {width: 90%;}
     div.navcenter {display: none;}
+    i#icon {display: block;}
     section.Yap {width: 100%;gap: 0;}
     .Yap h1 {text-align: center;}
     section.KoTD {width: 100%;font-size: .9em;}
     section.stats {width: 80%;padding: 20px;border-radius: 15px;}
     .KoTD div > img {width: 310px;}
-    iframe {width: 320px;}
+    iframe {width: 320px; height: 230px;}
     footer {
         height: 100px;
         justify-content: space-around; 
