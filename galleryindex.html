@@ -37,11 +37,23 @@
             <a href="https://www.instagram.com/tunakos_/"><i class="fa-brands fa-instagram"></i> tunakos_</a>
         </section>
     </footer>
+    <div id="kittenModal" class="modal hidden">
+        <div class="modal-content">
+            <span id="modalClose"><i class="fa-solid fa-xmark"></i></span>
+            <img id="modalImage" />
+            <h2 id="modalName"></h2>
+            <p><strong>Age:</strong> <span id="modalAge"></span></p>
+            <p><strong>Breed:</strong> <span id="modalBreed"></span></p>
+            <p><strong>Special:</strong> <span id="modalSpecial"></span></p>
+        </div>
+    </div>
     
-    <script>
+    <script>//ChatGPTPart: https://chatgpt.com/share/68165890-0550-800a-92b5-bf5ec24d1f1f
         const container = document.getElementById("kittensContainer");
+        const modal = document.getElementById("kittenModal");
+        const closeBtn = document.getElementById("modalClose");
 
-        fetch("kittens.json") // or 'data/kittens.json' if stored there
+        fetch("kittens.json")
           .then(res => res.json())
           .then(kittens => {
             kittens.forEach(kitten => {
@@ -49,14 +61,57 @@
                 card.className = "kitten-card";
                 card.innerHTML = `
                     <img src="${kitten.image}" alt="${kitten.name}" class="kitten-img" />
-                    <p>${kitten.name}</p>
+                    <h2>${kitten.name}</h2>
+                    <p><strong>Age:</strong> ${kitten.age}</p>
+                    <p><strong>Breed:</strong> ${kitten.breed}</p>
+                    <p><strong>Special:</strong> ${kitten.special}</p>
                 `;
+                card.addEventListener("click", zoom);
             container.appendChild(card);
             });
           })
           .catch(error => {
             console.error("Failed to load kittens.json:", error);
         });
+        
+        function zoom(event) {
+            const card = event.currentTarget;
+            const img = card.querySelector("img");
+            const name = card.querySelector("h2").textContent;
+            const age = card.querySelector("p:nth-of-type(1)").textContent.split(": ")[1];
+            const breed = card.querySelector("p:nth-of-type(2)").textContent.split(": ")[1];
+            const special = card.querySelector("p:nth-of-type(3)").textContent.split(": ")[1];
+        
+            document.getElementById("modalImage").src = img.src;
+            document.getElementById("modalName").textContent = name;
+            document.getElementById("modalAge").textContent = age;
+            document.getElementById("modalBreed").textContent = breed;
+            document.getElementById("modalSpecial").textContent = special;
+        
+            const modal = document.getElementById("kittenModal");
+            modal.classList.remove("hidden");
+            requestAnimationFrame(() => modal.classList.add("visible")); // force reflow to trigger transition
+        }
+        
+        closeBtn.addEventListener("click", () => {
+            closeBtn.classList.add("shake");
+            setTimeout(() => {
+              closeBtn.classList.remove("shake");
+              closeModal();
+            }, 400);
+          });
+        
+          modal.addEventListener("click", (e) => {
+            // If clicked outside modal-content
+            if (e.target === modal) {
+              closeModal();
+            }
+          });
+        
+          function closeModal() {
+            modal.classList.remove("visible");
+            modal.classList.add("hidden");
+          }
     </script>
     <script src="TabScript.js"></script>
 </body>

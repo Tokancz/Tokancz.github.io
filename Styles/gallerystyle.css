@@ -126,12 +126,12 @@ section.container > div img {
 section img:hover {
     filter: opacity(.7);
 }
-section.container > div p {
+section.container > div h2, section.container > div p{
     display: none;
     font-size: 2em;
     font-weight: 600;
 }
-section.container > div:hover p {
+section.container > div:hover h2 {
     display: inline;
     position: fixed;
     top: 10px;
@@ -173,6 +173,70 @@ section.contact {
     flex-direction: column;
     gap: 10px;
 }
+#kittenModal {
+    position: fixed;
+    width: 100%;height: 100%;
+    top: 0; left: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: brightness(.1);
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#kittenModal.visible {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+}
+#kittenModal.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+}
+.modal-content {
+    height: 800px;
+    background-color: var(--background);
+    color: var(--secondary);
+    position: relative;
+    padding: 40px;
+    margin-top: 150px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 2.5em;
+    box-shadow: 0 0 20px #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.modal-content img {
+    width: 500px;
+    height: 600px;
+    border-radius: 10px;
+}
+#modalClose {
+    position:absolute;
+    top: 7px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+/* Shake animation only for close button */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+.shake {
+    animation: shake 0.4s;
+}
 
 /*Responzivita*/
 @media (width <= 1024px) {
@@ -185,8 +249,8 @@ section.contact {
     i#icon {display: block;}
     main {width: 80%;}
     section.container {grid-template-columns: repeat(2, 1fr); margin-top: 0px;}
-    
-    
+    .modal-content {height: 450px; padding: 15px;font-size: 2em;}
+    .modal-content img {height: 300px; width: 250px;}
     footer {
         height: 100px;
         justify-content: space-around; 
