@@ -33,7 +33,7 @@
                 <div class="button" id="kitty">
                     <img id="kitty" src="https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t1080x1080.jpg" alt="kitty" draggable="false">
                 </div>
-                <section class="upgrades"> <!--Dodelat funkcionalitu-->
+                <section class="upgrades">
                     <section onclick='upgrade("tonque")'>
                         <p>Tongue lvl: <span id="tonque">0</span></p>
                         <p class="cost">Cost: <span id="Ctonque">0</span></p>
@@ -42,7 +42,7 @@
                         <p>Silly lvl: <span id="silly">0</span></p>
                         <p class="cost">Cost: <span id="Csilly">0</span></p>
                     </section>
-                    <section>
+                    <section onclick='upgrade("voice")'>
                         <p>Voice lvl: <span id="voice">0</span></p>
                         <p class="cost">Cost: <span id="Cvoice">0</span></p>
                     </section>
@@ -50,7 +50,7 @@
                         <p>Brain Cells: <span id="braincells">0</span></p>
                         <p class="cost">Cost: <span id="Cbraincells">0</span></p>
                     </section>
-                    <section>
+                    <section onclick='upgrade("catfood")'>
                         <p>Cat food lvl: <span id="catfood">0</span></p>
                         <p class="cost">Cost: <span id="Ccatfood">0</span></p>
                     </section>
@@ -120,19 +120,28 @@
         function Load() {//Called on refresh
             //-------------if exists---------------//
             if (getCookie("meow")){
-                document.getElementById("counter").innerHTML = getCookie("meow");}
-
+                document.getElementById("counter").innerHTML = getCookie("meow");
+            }
             if (getCookie("tonque")){
                 document.getElementById("tonque").innerHTML = getCookie("tonque");
-                document.getElementById("Ctonque").innerHTML = upgradeCost("tonque");}
-
+                document.getElementById("Ctonque").innerHTML = upgradeCost("tonque");
+            }
             if (getCookie("silly")){
                 document.getElementById("silly").innerHTML = getCookie("silly");
-                document.getElementById("Csilly").innerHTML = upgradeCost("silly");}
-
+                document.getElementById("Csilly").innerHTML = upgradeCost("silly");
+            }
             if (getCookie("braincells")){
                 document.getElementById("braincells").innerHTML = getCookie("braincells");
-                document.getElementById("Cbraincells").innerHTML = upgradeCost("braincells");}
+                document.getElementById("Cbraincells").innerHTML = upgradeCost("braincells");
+            }
+            if (getCookie("voice")){
+                document.getElementById("voice").innerHTML = getCookie("voice");
+                document.getElementById("Cvoice").innerHTML = upgradeCost("voice");
+            }
+            if (getCookie("catfood")){
+                document.getElementById("catfood").innerHTML = getCookie("catfood");
+                document.getElementById("Ccatfood").innerHTML = upgradeCost("catfood");
+            }
         }
 
         function Meow() { //main click
@@ -157,53 +166,54 @@
             return muted = !muted;
         }
 
-        function multiplierCalc(){//calculates the multiplier
-            let multiplier = 1; //starting value
-
-            let tonquelvl = getCookie("tonque");//+1
-            multiplier += Number(tonquelvl);
-            
-            let sillylvl = getCookie("silly") * 0.1;//+0.1
-            multiplier += Number(multiplier * sillylvl);
-
-            return Number(multiplier);
-        }
+        function multiplierCalc(){
+            let base = 1;
+            let tonque = Number(getCookie("tonque") || 0); // +1 per level
+            let silly = Number(getCookie("silly") || 0);   // +10% per level
+            let voice = Number(getCookie("voice") || 0);   // chance to crit
+        
+            let multiplier = base + tonque;
+            multiplier *= (1 + 0.1 * silly);
+        
+            // voice: chance to crit
+            if (voice > 0 && Math.random() < (voice * 0.05)) { // 5% per level
+                console.log("Critical Meow!");
+                multiplier *= 2; // Double click
+            }
+        
+            return Math.floor(multiplier * 10) / 10;
+        }        
 
         function AFKCalc(){
-            let amount = 0;
-
-            let braincellslvl = getCookie("braincells");//+1
-
-            meows = Number(meows)
-            amount += Number(braincellslvl);
-
-            if (amount >= 1)
-            {
-            meows += amount;
-            meows = Math.floor(meows * 10)/10;
-            addCookie("meow",meows);
+            let braincells = Number(getCookie("braincells") || 0);
+            let catfood = Number(getCookie("catfood") || 0);
+        
+            let afkGain = braincells + (catfood * 0.5); // 0.5 per catfood lvl
+            meows = Number(meows) + afkGain;
+            meows = Math.floor(meows * 10) / 10;
+            addCookie("meow", meows);
             Load();
-            }
         }
         
         function upgradeCost(name){
-            let lvl = getCookie(name);
-            return (Number(lvl) + 1) * 50;
-        }
+            let lvl = Number(getCookie(name) || 0);
+            return Math.floor(50 * Math.pow(1.15, lvl)); // Base 50, increases ~15% each level
+        }        
 
-        function upgrade(name) {//handles upgrading
-            let lvl = getCookie(name);
-            let cost = (Number(lvl) + 1) * 50;
-
-            if ( cost <= meows){
-                lvl ++;
+        function upgrade(name){
+            let lvl = Number(getCookie(name) || 0);
+            let cost = upgradeCost(name);
+        
+            if (meows >= cost){
+                lvl++;
                 meows -= cost;
                 meows = Math.floor(meows * 10)/10;
-                addCookie("meow",meows);
+                addCookie(name, lvl);
+                addCookie("meow", meows);
             }
-            addCookie(name,lvl);
+        
             Load();
-        }
+        }        
 
         function addCookie(cname, value) {//adds cookies
             document.cookie=cname+"="+Number(value);
