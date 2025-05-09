@@ -2,7 +2,7 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://api.ssps.cajthaml.eu/file/64d9f18f79dad891e8a07c73">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -34,29 +34,29 @@
                     <img id="kitty" src="https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t1080x1080.jpg" alt="kitty" draggable="false">
                 </div>
                 <section class="upgrades">
-                    <section onclick='upgrade("tonque")'>
+                    <section data-tooltip="Adds +1 meow per click." id="tonque-section">
                         <p>Tongue lvl: <span id="tonque">0</span></p>
                         <p class="cost">Cost: <span id="Ctonque">0</span></p>
-                    </section>             
-                    <section onclick='upgrade("silly")'>
+                    </section>
+                    <section data-tooltip="Increases click multiplier by 10% per level." id="silly-section">
                         <p>Silly lvl: <span id="silly">0</span></p>
                         <p class="cost">Cost: <span id="Csilly">0</span></p>
                     </section>
-                    <section onclick='upgrade("voice")'>
+                    <section data-tooltip="Grants a chance to critically boost a click." id="voice-section">
                         <p>Voice lvl: <span id="voice">0</span></p>
                         <p class="cost">Cost: <span id="Cvoice">0</span></p>
                     </section>
-                    <section onclick='upgrade("braincells")'>
+                    <section data-tooltip="Adds 1 meow per second while idle." id="braincells-section">
                         <p>Brain Cells: <span id="braincells">0</span></p>
                         <p class="cost">Cost: <span id="Cbraincells">0</span></p>
                     </section>
-                    <section onclick='upgrade("catfood")'>
+                    <section data-tooltip="Adds 0.5 meow per second while idle." id="catfood-section">
                         <p>Cat food lvl: <span id="catfood">0</span></p>
                         <p class="cost">Cost: <span id="Ccatfood">0</span></p>
-                    </section>
-                    <section>
+                    </section>                    
+                    <section data-tooltip="Work in progress!">
                         <p>Secret Upgrade</p>
-                        <p class="cost">Cost: <span id="Csecret">1000000</span></p>
+                        <p class="cost">Cost: <span id="Csecret">10AAA</span></p>
                     </section>
                 </section>
             </section>
@@ -95,148 +95,7 @@
         </section>
     </footer>
 
-    <script>
-        let meows = getCookie("meow");//Inicialization of variables
-        let muted = false;
-        
-        let meow1 = new Audio('/Audio/Meow.mp3');
-        let meow2 = new Audio('/Audio/Meow2.mp3');
-        let meow3 = new Audio('/Audio/Meow3.mp3');
-        let meow4 = new Audio('/Audio/Meow4.mp3');
-        let meow5 = new Audio('/Audio/Meow5.mp3');
-        let meow6 = new Audio('/Audio/Meow6.mp3');
-        let meow7 = new Audio('/Audio/Meow7.mp3');
-
-        setInterval(AFKCalc,1000);
-
-        const kitty = document.getElementById("kitty");
-        kitty.addEventListener('click', Meow);
-        const mutebtn1 = document.getElementById("loud");
-        mutebtn1.addEventListener('click', mute);
-        const mutebtn2 = document.getElementById("muted");
-        mutebtn2.addEventListener('click', mute);
-
-
-        function Load() {//Called on refresh
-            //-------------if exists---------------//
-            if (getCookie("meow")){
-                document.getElementById("counter").innerHTML = getCookie("meow");
-            }
-            if (getCookie("tonque")){
-                document.getElementById("tonque").innerHTML = getCookie("tonque");
-                document.getElementById("Ctonque").innerHTML = upgradeCost("tonque");
-            }
-            if (getCookie("silly")){
-                document.getElementById("silly").innerHTML = getCookie("silly");
-                document.getElementById("Csilly").innerHTML = upgradeCost("silly");
-            }
-            if (getCookie("braincells")){
-                document.getElementById("braincells").innerHTML = getCookie("braincells");
-                document.getElementById("Cbraincells").innerHTML = upgradeCost("braincells");
-            }
-            if (getCookie("voice")){
-                document.getElementById("voice").innerHTML = getCookie("voice");
-                document.getElementById("Cvoice").innerHTML = upgradeCost("voice");
-            }
-            if (getCookie("catfood")){
-                document.getElementById("catfood").innerHTML = getCookie("catfood");
-                document.getElementById("Ccatfood").innerHTML = upgradeCost("catfood");
-            }
-        }
-
-        function Meow() { //main click
-            meows = Number(meows) + multiplierCalc();
-            meows = Math.floor(meows * 10)/10;
-            
-            const audioArray = [meow1, meow2, meow3, meow4, meow5, meow6, meow7]
-            let Raudio = audioArray[Math.floor(Math.random() * (audioArray.length - 1))]
-
-            if (muted) {console.log("muted"); Raudio.volume = 0;}
-            else {console.log("unmuted"); Raudio.volume = .6;}
-    
-            Raudio.play();
-
-            addCookie("meow",meows);
-
-            Load();
-        }
-
-        function mute() {
-            console.log("change", muted)
-            return muted = !muted;
-        }
-
-        function multiplierCalc(){
-            let base = 1;
-            let tonque = Number(getCookie("tonque") || 0); // +1 per level
-            let silly = Number(getCookie("silly") || 0);   // +10% per level
-            let voice = Number(getCookie("voice") || 0);   // chance to crit
-        
-            let multiplier = base + tonque;
-            multiplier *= (1 + 0.1 * silly);
-        
-            // voice: chance to crit
-            if (voice > 0 && Math.random() < (voice * 0.05)) { // 5% per level
-                console.log("Critical Meow!");
-                multiplier *= 2; // Double click
-            }
-        
-            return Math.floor(multiplier * 10) / 10;
-        }        
-
-        function AFKCalc(){
-            let braincells = Number(getCookie("braincells") || 0);
-            let catfood = Number(getCookie("catfood") || 0);
-        
-            let afkGain = braincells + (catfood * 0.5); // 0.5 per catfood lvl
-            meows = Number(meows) + afkGain;
-            meows = Math.floor(meows * 10) / 10;
-            addCookie("meow", meows);
-            Load();
-        }
-        
-        function upgradeCost(name){
-            let lvl = Number(getCookie(name) || 0);
-            return Math.floor(50 * Math.pow(1.15, lvl)); // Base 50, increases ~15% each level
-        }        
-
-        function upgrade(name){
-            let lvl = Number(getCookie(name) || 0);
-            let cost = upgradeCost(name);
-        
-            if (meows >= cost){
-                lvl++;
-                meows -= cost;
-                meows = Math.floor(meows * 10)/10;
-                addCookie(name, lvl);
-                addCookie("meow", meows);
-            }
-        
-            Load();
-        }        
-
-        function addCookie(cname, value) {//adds cookies
-            document.cookie=cname+"="+Number(value);
-        }
-
-        function getCookie(cname) {//searches for cookies src="https://www.w3schools.com/js/js_cookies.asp"
-            let name = cname + "=";
-            let decodedCookie = decodeURIComponent(document.cookie);
-            let ca = decodedCookie.split(';');
-            for(let i = 0; i < ca.length; i++) {
-              let c = ca[i];
-              while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-              }
-              if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-              }
-            }
-            return "";
-        }
-        
-        Load();
-    </script>
+    <script src="clicker.js"></script>
     <script src="TabScript.js"></script>
 </body>
 </html>

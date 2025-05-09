@@ -162,6 +162,30 @@ section.upgrades > section {
     color: var(--secondary);
     transition: .3s;
 }
+.upgrades section {
+    position: relative;
+}
+.upgrades section::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -30%;
+    left: 5%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    background-color: var(--background);
+    color: var(--secondary);
+    border: 1px solid var(--primary);
+    border-radius: 6px;
+    padding: 5px 10px;
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+    font-size: 0.9em;
+    z-index: 10;
+}
+.upgrades section:hover::after {
+    opacity: 1;
+}
 section.upgrades > section:hover {
     transition: .3s;
     transform: scale(1.05);
