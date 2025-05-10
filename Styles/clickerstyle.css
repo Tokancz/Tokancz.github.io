@@ -296,6 +296,7 @@ section.contact {
     i#icon {display: block;}
     main {padding-top: 10px; gap: 30px; width: 100%;}
     label {top: 45%;left: 88%;}
+    .upgrades section::after {font-size: .8em;}
     section.container {grid-template-columns: auto; gap: 10px;}
     footer {
         height: 100px;
