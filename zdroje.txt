@@ -1,0 +1,13 @@
+Design Ideas:
+    Colors: https://coolors.co/visualizer/d71d36-7e1120-292727-201e1e-f5f5f5
+    Inspiration: 
+        https://www.osmo.supply/
+        https://dribbble.com/shots/23875651-Spotify-App
+    Animations: https://animate.style/
+    Photos: https://pin.it/M3KpGRDvF
+    Layouts: https://www.wix.com/blog/website-layouts
+    Figma: https://www.figma.com/design/t5d9pUzHmJFrPwtHCC20Ik/Kitty-Site?t=bQOJqNJNEJMuuOEv-1
+
+ChatGPTParts: 
+https://chatgpt.com/share/68165890-0550-800a-92b5-bf5ec24d1f1f
+https://chatgpt.com/share/681f0f7a-d754-800a-8dc4-9ccc06b5cd51
