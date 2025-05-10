@@ -58,60 +58,7 @@
         </section>
     </footer>
 
-    <script>
-        const kittens = document.getElementsByClassName("kitty");
-    
-        for (let i = 0 ; i < kittens.length; i++) { //onclick replacement
-            const kitten = kittens[i];
-            kitten.addEventListener('click', Meow);
-        }
-
-        function Meow()
-        { 
-            let meow1 = new Audio('/Audio/Meow.mp3');
-            let meow2 = new Audio('/Audio/Meow2.mp3');
-            let meow3 = new Audio('/Audio/Meow3.mp3');
-            let meow4 = new Audio('/Audio/Meow4.mp3');
-            let meow5 = new Audio('/Audio/Meow5.mp3');
-            let meow6 = new Audio('/Audio/Meow6.mp3');
-            let meow7 = new Audio('/Audio/Meow7.mp3');
-            
-            const audioArray = [meow1, meow2, meow3, meow4, meow5, meow6, meow7];
-
-            let Raudio = audioArray[Math.floor(Math.random() * (audioArray.length - 1))];
-            Raudio.volume = .4;
-            Raudio.play();
-        }
-
-        // The container where kittens will be shown
-        const container = document.getElementById("kittensContainer");
-        const KoTD = document.getElementById("kitty");
-        const kittenlist = [];
-      
-        // Load JSON and display kittens
-        fetch("Scripts/kittens.json") // or 'data/kittens.json' if stored there
-          .then(res => res.json())
-          .then(kittens => {
-            kittens.forEach(kitten => {
-                kittenlist.push(kitten);
-            });
-            console.log("Kittens loaded:", kittenlist);
-            kittychange(); // <- Now run it
-            setInterval(kittychange, 5000); // <- Start the interval
-          })
-          .catch(error => {
-            console.error("Failed to load kittens.json:", error);
-        });
-
-        function kittychange(){
-            let rkitten = kittenlist[Math.floor(Math.random() * (kittenlist.length - 1))];
-            document.getElementById("kitty").src =  `${rkitten.image}`;
-            document.getElementById("name").innerText =  `${rkitten.name}`;
-            document.getElementById("age").innerText =  `${rkitten.age}`;    
-            document.getElementById("breed").innerText =  `${rkitten.breed}`;
-            document.getElementById("special").innerText =  `${rkitten.special}`;
-        }
-    </script>      
+    <script src="Scripts/KoTD.js"></script>      
     <script src="Scripts/TabScript.js"></script>
 </body>
 </html>
