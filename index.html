@@ -89,7 +89,7 @@
         const kittenlist = [];
       
         // Load JSON and display kittens
-        fetch("kittens.json") // or 'data/kittens.json' if stored there
+        fetch("Scripts/kittens.json") // or 'data/kittens.json' if stored there
           .then(res => res.json())
           .then(kittens => {
             kittens.forEach(kitten => {
@@ -112,7 +112,7 @@
             document.getElementById("special").innerText =  `${rkitten.special}`;
         }
     </script>      
-    <script src="TabScript.js"></script>
+    <script src="Scripts/TabScript.js"></script>
 </body>
 </html>
 

@@ -53,7 +53,7 @@
         const modal = document.getElementById("kittenModal");
         const closeBtn = document.getElementById("modalClose");
 
-        fetch("kittens.json")
+        fetch("Scripts/kittens.json")
           .then(res => res.json())
           .then(kittens => {
             kittens.forEach(kitten => {
@@ -113,7 +113,7 @@
             modal.classList.add("hidden");
           }
     </script>
-    <script src="TabScript.js"></script>
+    <script src="Scripts/TabScript.js"></script>
 </body>
 </html>
 
