@@ -37,15 +37,20 @@
         max.addEventListener("click", function(){
             const maxdup = document.createElement('img');
 
-            xpos = Math.floor(Math.random() * screen.width) - 150
-            ypos = Math.floor(Math.random() * screen.height) - 150
+            const imageWidth = 150;
+            const imageHeight = 150;
 
-            maxdup.src = "Images/Maxwell.png"
-            maxdup.className = "maxwell"
+            // Ensure the image stays within the visible viewport
+            const xpos = Math.random() * (window.innerWidth - imageWidth);
+            const ypos = Math.random() * (window.innerHeight - imageHeight);
+
+            maxdup.src = "Images/Maxwell.png";
+            maxdup.className = "maxwell";
+            maxdup.style.position = "absolute";
             maxdup.style.left = `${xpos}px`;
-            maxdup.style.top = `${ypos}px`
+            maxdup.style.top = `${ypos}px`;
             maxdup.draggable = false;
-            maxdup.style.opacity = .6;
+            maxdup.style.opacity = 0.6;
 
             music.play();
 
